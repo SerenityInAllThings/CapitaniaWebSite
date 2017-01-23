@@ -1,0 +1,72 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+[class*="col-"] {
+    float: left;
+    border: 0px solid red;
+}
+ul.menuSuperior{
+    list-style-type: none;
+    margin: 0px 10px 0px 0px;
+    padding: 0px;
+    overflow: hidden;
+    height: 100%;
+}
+li.menuSuperior{
+    float: right;
+    background-color: #3C3C3C;
+}
+a.menuSuperior{
+    display: block;
+    color: #D0D0D0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+a.menuSuperior:hover{
+    background-color: #202020;
+    color: #F4F4F4;
+}
+ul.menuPrincipal{
+    list-style-type: none;
+    margin: 0px 0px 0px 5%;
+    padding: 0;
+    overflow: hidden;
+    background-color: #585044;
+}
+li.menuPrincipal{
+    float: left;
+    background-color: #585044;
+}
+a.menuPrincipal{
+    display: block;
+    color: #C0B3A0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+a.menuPrincipal:hover{
+    background-color: #604606;
+    color: #F4F4F4;
+}
+img.logo_g{
+    width: 100%;
+}
+body{
+    background-image: url('bg_tile.jpg');
+    background-repeat: repeat;
+}

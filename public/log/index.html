@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Capitânia - Mapa </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/header/style.css">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <style>
+        div.principal{
+            background-color: #3C3C3C;
+            border: 1px solid black;
+        }
+        div#container_log{
+            border: 1px solid darkblue;
+        }
+    </style>
+    <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
+    <script>
+        function popularLog(){
+            $.get('log.txt', (data)=>{
+                data = data.replace(/\n/g, '<br/>');
+                document.getElementById("container_log").innerHTML = data;
+            });
+        }
+    </script>
+</head>
+<body>
+    <div w3-include-html="/header/header.html"></div>
+    <script>w3IncludeHTML();</script>
+
+    <div class="col-1" style="border: 1px solid black">
+        <p> </p>
+    </div>
+
+    <div class="col-10 principal">
+        <h3> Log do servidor: </h3>
+        <p id="data_atualizado"> </p>
+        <div id="container_log"></div>
+        <script>popularLog();</script>
+    </div>  
+
+    <div class="col-1" style="border: 1px solid black">
+        <p> </p>
+    </div>
+</body>
+
+</html>

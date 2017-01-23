@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Capitânia - Mapa </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/header/style.css">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <style>
+        div.principal{
+            background-color: #3C3C3C;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div w3-include-html="/header/header.html"></div>
+    <script>w3IncludeHTML();</script>
+
+    <div class="col-1" style="border: 1px solid black">
+        <p> </p>
+    </div>
+
+    <div class="col-10 principal">
+        <form action="autenticacao" method="POST">
+            Login:<br/>
+            <input type="text" name="login"><br/>
+            Password:<br/>
+            <input type="text" name="passwd"><br/>
+            <input type="submit" value="Entrar">
+        </form>
+    </div>
+
+    <div class="col-1" style="border: 1px solid black">
+        <p> </p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,572 @@
+[12/29/2016 9:21:56 PM] [12.4s] LARGE MONUMENTS
+[12/29/2016 9:21:57 PM] [0.8s] MEDIUM MONUMENTS
+[12/29/2016 9:21:58 PM] [0.9s] SMALL MONUMENTS
+[12/29/2016 9:22:04 PM] [5.9s] RIVER LAYOUT
+[12/29/2016 9:22:05 PM] [0.7s] RIVER OBJECTS
+[12/29/2016 9:22:11 PM] [6.8s] ROAD LAYOUT
+[12/29/2016 9:22:14 PM] [2.2s] ROAD OBJECTS
+[12/29/2016 9:22:14 PM] [0.9s] POWERLINE LAYOUT
+[12/29/2016 9:22:16 PM] [1.2s] POWERLINE OBJECTS
+[12/29/2016 9:22:23 PM] [7.0s] CAVES
+[12/29/2016 9:22:23 PM] [0.4s] FIELD ROCKS 1/2
+[12/29/2016 9:22:24 PM] [0.5s] FOREST ROCKS 1/2
+[12/29/2016 9:22:24 PM] [0.5s] FOREST ROCKS 2/2
+[12/29/2016 9:22:25 PM] [0.4s] CLIFFS 1/2
+[12/29/2016 9:22:27 PM] [2.2s] MICRO CLIFFS
+[12/29/2016 9:22:30 PM] [1.7s] TERRAIN MESH
+[12/29/2016 9:22:31 PM] [0.8s] CLIFF SPLAT
+[12/29/2016 9:22:32 PM] [1.0s] PROCEDURAL OBJECTS
+[12/29/2016 9:22:33 PM] [1.0s] CLIFF TOPOLOGY
+[12/29/2016 9:22:33 PM] [66.5s] Procedural Generation
+[12/29/2016 9:22:34 PM] Destroyed 408 old entities
+[12/29/2016 9:22:41 PM] Spawning 50732 entities
+[12/29/2016 9:22:41 PM] AngryAnt Behave version 2.5 (d859964) - Copyright (C) Emil Johansen - AngryAnt 2015
+[12/29/2016 9:22:43 PM] 	7439 / 50732
+[12/29/2016 9:22:45 PM] 	18765 / 50732
+[12/29/2016 9:22:47 PM] 	25042 / 50732
+[12/29/2016 9:22:49 PM] 	30800 / 50732
+[12/29/2016 9:22:53 PM] 	35447 / 50732
+[12/29/2016 9:22:55 PM] 	40848 / 50732
+[12/29/2016 9:22:57 PM] 	45652 / 50732
+[12/29/2016 9:22:59 PM] 	49918 / 50732
+[12/29/2016 9:22:59 PM] Loading Complete
+[12/29/2016 9:22:59 PM] Enforcing SpawnPopulation Limits
+[12/29/2016 9:23:03 PM] Map Spawned 51235 entities
+[12/29/2016 9:23:07 PM] Initializing 50829 entity links
+[12/29/2016 9:23:09 PM] 	22792 / 50829
+[12/29/2016 9:23:11 PM] 	36103 / 50829
+[12/29/2016 9:23:13 PM] 	49121 / 50829
+[12/29/2016 9:23:13 PM] Initializing 23315 stability supports
+[12/29/2016 9:23:13 PM] Initializing 21000 conditional models
+[12/29/2016 9:23:19 PM] Connected to Steam
+[12/29/2016 9:23:19 PM] Server startup complete
+[12/29/2016 9:33:18 PM] Saved 50,756 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/29/2016 9:33:18 PM] Saving complete
+[12/29/2016 9:37:32 PM] [IP PROTEGIDO]:12206/76561197999815358/BOT FelguS /?/ joined [windows/76561197999815358]
+[12/29/2016 9:38:54 PM] [IP PROTEGIDO]:12206/76561197999815358/BOT FelguS /?/ disconnecting: closing
+[12/29/2016 9:39:30 PM] [IP PROTEGIDO]:49483/76561198102443277/Integrador joined [windows/76561198102443277]
+[12/29/2016 9:43:16 PM] Saved 50,785 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/29/2016 9:43:16 PM] Saving complete
+[12/29/2016 9:43:49 PM] SrTheteu�[9218443/76561198207194209] was killed by wolf (wolf)
+[12/29/2016 9:53:15 PM] Saved 50,740 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/29/2016 9:53:15 PM] Saving complete
+[12/29/2016 10:03:13 PM] Saved 50,745 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/29/2016 10:03:13 PM] Saving complete
+[12/29/2016 10:07:31 PM] Wizard SkinUp.gg[8866760/76561198082983939] was killed by bear (bear)
+[12/29/2016 10:13:12 PM] Saved 50,732 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/29/2016 10:13:12 PM] Saving complete
+[12/29/2016 10:18:07 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/29/2016 10:26:28 PM] [IP PROTEGIDO]:40026/76561198068139391/rocknrollhl joined [windows/76561198068139391]
+[12/29/2016 10:27:38 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/29/2016 10:33:09 PM] Saved 50,765 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/29/2016 10:33:09 PM] Saving complete
+[12/29/2016 10:41:27 PM] [IP PROTEGIDO]:61523/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/29/2016 10:43:07 PM] Saved 50,772 ents, serialization(0.00), write(0.01), disk(0.32) totalstall(0.04).
+[12/29/2016 10:43:07 PM] Saving complete
+[12/29/2016 10:45:03 PM] Manilla Gorilla[8251782/76561198166505297] was killed by bear (bear)
+[12/29/2016 10:48:46 PM] [IP PROTEGIDO]:58307/76561198022246749/Henri Zombie joined [windows/76561198022246749]
+[12/29/2016 10:50:01 PM] Integrador[9765153/76561198102443277] was killed by Drowned
+[12/29/2016 10:50:09 PM] [IP PROTEGIDO]:49483/76561198102443277/Integrador disconnecting: disconnect
+[12/29/2016 10:53:06 PM] Saved 50,707 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/29/2016 10:53:06 PM] Saving complete
+[12/29/2016 10:54:53 PM] [IP PROTEGIDO]:51857/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/29/2016 11:03:04 PM] Saved 50,689 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/29/2016 11:03:04 PM] Saving complete
+[12/29/2016 11:08:39 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/29/2016 11:11:59 PM] rocknrollhl[5815380/76561198068139391] was suicide by Suicide
+[12/29/2016 11:19:30 PM] [IP PROTEGIDO]:50274/76561198318092648/Gab joined [osx/76561198318092648]
+[12/29/2016 11:22:51 PM] [IP PROTEGIDO]:13684/76561198050085513/secchinho <3 RoKZERA joined [windows/76561198050085513]
+[12/29/2016 11:23:01 PM] Saved 50,680 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/29/2016 11:23:01 PM] Saving complete
+[12/29/2016 11:23:03 PM] [IP PROTEGIDO]:55757/76561198080231693/Porc1 joined [windows/76561198080231693]
+[12/29/2016 11:25:43 PM] [IP PROTEGIDO]:50274/76561198318092648/Gab disconnecting: disconnect
+[12/29/2016 11:28:57 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/29/2016 11:29:23 PM] [IP PROTEGIDO]:13684/76561198050085513/secchinho <3 RoKZERA disconnecting: disconnect
+[12/29/2016 11:33:00 PM] Saved 50,675 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/29/2016 11:33:00 PM] Saving complete
+[12/29/2016 11:33:06 PM] [IP PROTEGIDO]:54351/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/29/2016 11:37:29 PM] [IP PROTEGIDO]:40878/76561198068139391/rocknrollhl joined [windows/76561198068139391]
+[12/29/2016 11:41:45 PM] [IP PROTEGIDO]:50657/76561198050986575/Ghosts007 joined [windows/76561198050986575]
+[12/29/2016 11:41:47 PM] [IP PROTEGIDO]:56857/76561198165481440/DUCK joined [windows/76561198165481440]
+[12/29/2016 11:42:58 PM] Saved 50,652 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/29/2016 11:42:58 PM] Saving complete
+[12/29/2016 11:47:33 PM] DUCK[9808299/76561198165481440] was killed by landmine (entity)
+[12/29/2016 11:52:57 PM] Saved 50,645 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/29/2016 11:52:57 PM] Saving complete
+[12/29/2016 11:54:12 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/29/2016 11:55:29 PM] [IP PROTEGIDO]:50657/76561198050986575/Ghosts007 disconnecting: disconnect
+[12/29/2016 11:55:42 PM] Gab[9799171/76561198318092648] was killed by Rhaps[5537458/76561198071160705]
+[12/30/2016 12:00:39 AM] [IP PROTEGIDO]:56857/76561198165481440/DUCK disconnecting: disconnect
+[12/30/2016 12:02:12 AM] srmagico[8489869/76561198114112699] was killed by bear (bear)
+[12/30/2016 12:02:55 AM] Saved 50,629 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 12:02:55 AM] Saving complete
+[12/30/2016 12:07:18 AM] [IP PROTEGIDO]:49537/76561198072248451/[YKZ] Term joined [windows/76561198072248451]
+[12/30/2016 12:12:54 AM] Saved 50,597 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 12:12:54 AM] Saving complete
+[12/30/2016 12:14:58 AM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 12:19:53 AM] Porc1[8443835/76561198080231693] was killed by patrolhelicopter (entity)
+[12/30/2016 12:20:35 AM] Rhaps[5537458/76561198071160705] was killed by patrolhelicopter (entity)
+[12/30/2016 12:22:52 AM] Saved 50,612 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 12:22:52 AM] Saving complete
+[12/30/2016 12:24:55 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 12:26:59 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 12:32:51 AM] Saved 50,594 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 12:32:51 AM] Saving complete
+[12/30/2016 12:39:55 AM] Anonymous[9221707/76561198070447170] was killed by [YKZ] Term[9817283/76561198072248451]
+[12/30/2016 12:42:49 AM] Saved 50,585 ents, serialization(0.01), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 12:42:49 AM] Saving complete
+[12/30/2016 12:46:09 AM] [IP PROTEGIDO]:4539/76561197994298078/thf.poa joined [windows/76561197994298078]
+[12/30/2016 12:52:48 AM] Saved 50,614 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 12:52:48 AM] Saving complete
+[12/30/2016 1:02:46 AM] Saved 50,646 ents, serialization(0.01), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 1:02:46 AM] Saving complete
+[12/30/2016 1:03:11 AM] [IP PROTEGIDO]:13727/76561198050085513/secchinho <3 RoKZERA joined [windows/76561198050085513]
+[12/30/2016 1:05:18 AM] [IP PROTEGIDO]:62881/76561197976207144/MokKO joined [windows/76561197976207144]
+[12/30/2016 1:07:25 AM] [IP PROTEGIDO]:13727/76561198050085513/secchinho <3 RoKZERA disconnecting: closing
+[12/30/2016 1:11:36 AM] [IP PROTEGIDO]:51149/76561198052475369/Fuleru joined [windows/76561198052475369]
+[12/30/2016 1:12:45 AM] Saved 50,644 ents, serialization(0.01), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 1:12:45 AM] Saving complete
+[12/30/2016 1:16:36 AM] rocknrollhl[5815380/76561198068139391] was killed by Cold
+[12/30/2016 1:21:26 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 1:27:03 AM] Fuleru[9844685/76561198052475369] was killed by wolf (wolf)
+[12/30/2016 1:30:44 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 1:32:42 AM] Saved 50,681 ents, serialization(0.01), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 1:32:42 AM] Saving complete
+[12/30/2016 1:36:06 AM] Porc1[8443835/76561198080231693] was killed by autoturret_deployed (entity)
+[12/30/2016 1:42:26 AM] Cachorrao[9749729/76561198031578101] was killed by Henri Zombie[8214514/76561198022246749]
+[12/30/2016 1:42:40 AM] Saved 50,769 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 1:42:40 AM] Saving complete
+[12/30/2016 1:43:06 AM] [IP PROTEGIDO]:56043/76561198170099950/Von Bullet joined [windows/76561198170099950]
+[12/30/2016 1:44:45 AM] [IP PROTEGIDO]:51587/76561198184115541/BiroCatchorro � joined [windows/76561198184115541]
+[12/30/2016 1:45:18 AM] BiroCatchorro �[9858297/76561198184115541] was suicide by Suicide
+[12/30/2016 1:45:54 AM] [IP PROTEGIDO]:51587/76561198184115541/BiroCatchorro � disconnecting: disconnect
+[12/30/2016 1:49:41 AM] [IP PROTEGIDO]:56043/76561198170099950/Von Bullet disconnecting: disconnect
+[12/30/2016 1:52:39 AM] Saved 50,731 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 1:52:39 AM] Saving complete
+[12/30/2016 1:54:45 AM] PHzera[9309539/76561198120763253] was killed by Fuleru[9844685/76561198052475369]
+[12/30/2016 1:54:46 AM] Arcanno[995199/76561198326610076] was killed by Rhaps[5537458/76561198071160705]
+[12/30/2016 2:02:37 AM] Saved 50,716 ents, serialization(0.01), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 2:02:37 AM] Saving complete
+[12/30/2016 2:04:12 AM] MokKO[9841846/76561197976207144] was killed by Fuleru[9844685/76561198052475369]
+[12/30/2016 2:11:45 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 2:21:51 AM] [IP PROTEGIDO]:4539/76561197994298078/thf.poa disconnecting: closing
+[12/30/2016 2:22:34 AM] Saved 50,716 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 2:22:34 AM] Saving complete
+[12/30/2016 2:25:47 AM] Fuleru[9844685/76561198052475369] was killed by Drowned
+[12/30/2016 2:26:07 AM] [IP PROTEGIDO]:51149/76561198052475369/Fuleru disconnecting: closing
+[12/30/2016 2:30:59 AM] [IP PROTEGIDO]:49537/76561198072248451/[YKZ] Term disconnecting: closing
+[12/30/2016 2:32:30 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 2:32:33 AM] Saved 50,672 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 2:32:33 AM] Saving complete
+[12/30/2016 2:33:53 AM] SK Igor CSGOTitan.net[9185538/76561198343728286] was killed by bear (bear)
+[12/30/2016 2:37:47 AM] [DS]ZeroCool[8455771/76561198168670168] was killed by Henri Zombie[8214514/76561198022246749]
+[12/30/2016 2:39:20 AM] Vitox[8391517/76561198043710924] was killed by Porc1[8443835/76561198080231693]
+[12/30/2016 2:42:31 AM] Saved 50,641 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 2:42:31 AM] Saving complete
+[12/30/2016 2:52:30 AM] Saved 50,670 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 2:52:30 AM] Saving complete
+[12/30/2016 2:57:40 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 3:02:11 AM] [IP PROTEGIDO]:62881/76561197976207144/MokKO disconnecting: closing
+[12/30/2016 3:02:52 AM] Porc1[8443835/76561198080231693] was killed by Cold
+[12/30/2016 3:03:14 AM] [IP PROTEGIDO]:55757/76561198080231693/Porc1 disconnecting: closing
+[12/30/2016 3:06:00 AM] rocknrollhl[5815380/76561198068139391] was killed by Henri Zombie[8214514/76561198022246749]
+[12/30/2016 3:06:17 AM] [IP PROTEGIDO]:40878/76561198068139391/rocknrollhl disconnecting: closing
+[12/30/2016 3:08:17 AM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 3:12:27 AM] Saved 50,658 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 3:12:27 AM] Saving complete
+[12/30/2016 3:15:44 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 3:21:25 AM] Darowr[5470280/76561198019597267] was killed by Henri Zombie[8214514/76561198022246749]
+[12/30/2016 3:22:25 AM] Saved 50,669 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 3:22:25 AM] Saving complete
+[12/30/2016 3:31:28 AM] MakE_Fakes[9721344/76561198305560176] was killed by Rhaps[5537458/76561198071160705]
+[12/30/2016 3:32:24 AM] Saved 50,636 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 3:32:24 AM] Saving complete
+[12/30/2016 3:35:32 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 3:35:57 AM] [IP PROTEGIDO]:54351/76561198071160705/Rhaps disconnecting: closing
+[12/30/2016 3:36:17 AM] [IP PROTEGIDO]:58307/76561198022246749/Henri Zombie disconnecting: closing
+[12/30/2016 3:42:22 AM] Saved 50,603 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 3:42:22 AM] Saving complete
+[12/30/2016 3:52:21 AM] Saved 50,562 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 3:52:21 AM] Saving complete
+[12/30/2016 4:02:19 AM] Saved 50,468 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 4:02:19 AM] Saving complete
+[12/30/2016 4:12:10 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 4:22:16 AM] Saved 50,410 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 4:22:16 AM] Saving complete
+[12/30/2016 4:32:14 AM] Saved 50,391 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 4:32:14 AM] Saving complete
+[12/30/2016 4:35:56 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 4:42:13 AM] Saved 50,346 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 4:42:13 AM] Saving complete
+[12/30/2016 4:52:11 AM] Saved 50,323 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 4:52:11 AM] Saving complete
+[12/30/2016 5:00:20 AM] RUSHADOR[8569743/76561198096116444] was killed by bear (bear)
+[12/30/2016 5:02:10 AM] Saved 50,316 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 5:02:10 AM] Saving complete
+[12/30/2016 5:11:11 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 5:11:25 AM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 5:22:07 AM] Saved 50,268 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 5:22:07 AM] Saving complete
+[12/30/2016 5:32:05 AM] Saved 50,252 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 5:32:05 AM] Saving complete
+[12/30/2016 5:40:24 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 5:42:04 AM] Saved 50,230 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 5:42:04 AM] Saving complete
+[12/30/2016 5:52:02 AM] Saved 50,233 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 5:52:02 AM] Saving complete
+[12/30/2016 5:59:43 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 6:11:59 AM] Saved 50,174 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 6:11:59 AM] Saving complete
+[12/30/2016 6:21:57 AM] Saved 50,117 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 6:21:57 AM] Saving complete
+[12/30/2016 6:23:34 AM] Von Bullet[9857403/76561198170099950] was killed by bear (bear)
+[12/30/2016 6:23:39 AM] giaoO[5635526/76561198056819294] was killed by wolf (wolf)
+[12/30/2016 6:31:56 AM] Saved 50,078 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 6:31:56 AM] Saving complete
+[12/30/2016 6:38:36 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 6:41:54 AM] Saved 50,063 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 6:41:54 AM] Saving complete
+[12/30/2016 6:42:08 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 6:51:53 AM] Saved 50,072 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 6:51:53 AM] Saving complete
+[12/30/2016 7:01:51 AM] Saved 50,062 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 7:01:51 AM] Saving complete
+[12/30/2016 7:11:50 AM] Saved 50,033 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 7:11:50 AM] Saving complete
+[12/30/2016 7:12:55 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 7:21:48 AM] Saved 50,020 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 7:21:48 AM] Saving complete
+[12/30/2016 7:22:51 AM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 7:31:47 AM] Saved 50,025 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 7:31:47 AM] Saving complete
+[12/30/2016 7:37:36 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 7:41:45 AM] Saved 50,018 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 7:41:45 AM] Saving complete
+[12/30/2016 7:51:44 AM] Saved 49,999 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 7:51:44 AM] Saving complete
+[12/30/2016 8:01:42 AM] Saved 49,992 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 8:01:42 AM] Saving complete
+[12/30/2016 8:07:00 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 8:21:39 AM] Saved 49,971 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 8:21:39 AM] Saving complete
+[12/30/2016 8:31:37 AM] Saved 49,962 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 8:31:37 AM] Saving complete
+[12/30/2016 8:39:42 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 8:41:36 AM] Saved 49,940 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 8:41:36 AM] Saving complete
+[12/30/2016 8:51:34 AM] Saved 49,945 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 8:51:34 AM] Saving complete
+[12/30/2016 8:53:50 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 9:01:33 AM] Saved 49,939 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 9:01:33 AM] Saving complete
+[12/30/2016 9:11:14 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 9:21:30 AM] Saved 49,823 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 9:21:30 AM] Saving complete
+[12/30/2016 9:31:28 AM] Saved 49,788 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 9:31:28 AM] Saving complete
+[12/30/2016 9:41:27 AM] Saved 49,792 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 9:41:27 AM] Saving complete
+[12/30/2016 9:43:34 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 9:49:21 AM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 9:51:25 AM] Saved 49,766 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 9:51:25 AM] Saving complete
+[12/30/2016 10:01:24 AM] Saved 49,740 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 10:01:24 AM] Saving complete
+[12/30/2016 10:04:39 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 10:07:54 AM] [IP PROTEGIDO]:57975/76561198318092648/Gab joined [osx/76561198318092648]
+[12/30/2016 10:11:22 AM] Saved 49,751 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 10:11:22 AM] Saving complete
+[12/30/2016 10:21:21 AM] Saved 49,743 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 10:21:21 AM] Saving complete
+[12/30/2016 10:27:00 AM] [IP PROTEGIDO]:44039/76561198313391287/cleitonmoira46 joined [windows/76561198313391287]
+[12/30/2016 10:31:19 AM] Saved 49,738 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 10:31:19 AM] Saving complete
+[12/30/2016 10:38:02 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 10:42:32 AM] [IP PROTEGIDO]:23369/76561198277528117/A u T o N o M i C joined [windows/76561198277528117]
+[12/30/2016 10:44:56 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 10:50:21 AM] Karl Macros[9751494/76561198165708557] was killed by bear (bear)
+[12/30/2016 10:51:16 AM] Saved 49,726 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 10:51:16 AM] Saving complete
+[12/30/2016 10:57:38 AM] Gab[10001749/76561198318092648] was killed by bear (bear)
+[12/30/2016 11:01:14 AM] Saved 49,695 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 11:01:14 AM] Saving complete
+[12/30/2016 11:06:23 AM] [IP PROTEGIDO]:44039/76561198313391287/cleitonmoira46 disconnecting: disconnect
+[12/30/2016 11:07:12 AM] [IP PROTEGIDO]:46572/76561198313391287/cleitonmoira46 joined [windows/76561198313391287]
+[12/30/2016 11:08:41 AM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 11:18:00 AM] Gab[10001749/76561198318092648] was killed by bear (bear)
+[12/30/2016 11:20:05 AM] Gab[10001749/76561198318092648] was killed by bear (bear)
+[12/30/2016 11:21:11 AM] Saved 49,648 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 11:21:11 AM] Saving complete
+[12/30/2016 11:21:43 AM] [IP PROTEGIDO]:60032/76561198062948091/Maiconzc joined [windows/76561198062948091]
+[12/30/2016 11:29:14 AM] Gab[10001749/76561198318092648] was killed by bear (bear)
+[12/30/2016 11:30:46 AM] Gab[10001749/76561198318092648] was killed by bear (bear)
+[12/30/2016 11:31:10 AM] Saved 49,623 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 11:31:10 AM] Saving complete
+[12/30/2016 11:41:08 AM] Saved 49,580 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 11:41:08 AM] Saving complete
+[12/30/2016 11:42:13 AM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 11:51:07 AM] Saved 49,582 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 11:51:07 AM] Saving complete
+[12/30/2016 12:01:05 PM] Saved 49,599 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 12:01:05 PM] Saving complete
+[12/30/2016 12:04:32 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 12:11:04 PM] Saved 49,568 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 12:11:04 PM] Saving complete
+[12/30/2016 12:19:01 PM] Gab[10001749/76561198318092648] was killed by A u T o N o M i C[3906153/76561198277528117]
+[12/30/2016 12:20:29 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 12:24:48 PM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 12:31:00 PM] Saved 49,564 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 12:31:01 PM] Saving complete
+[12/30/2016 12:40:59 PM] Saved 49,564 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 12:40:59 PM] Saving complete
+[12/30/2016 12:46:26 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 12:50:57 PM] Saved 49,661 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 12:50:57 PM] Saving complete
+[12/30/2016 1:00:56 PM] Saved 49,662 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 1:00:56 PM] Saving complete
+[12/30/2016 1:10:54 PM] Saved 49,651 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 1:10:54 PM] Saving complete
+[12/30/2016 1:12:09 PM] [IP PROTEGIDO]:5143/76561198099557153/Pardalzenho joined [windows/76561198099557153]
+[12/30/2016 1:12:57 PM] [IP PROTEGIDO]:57975/76561198318092648/Gab disconnecting: closing
+[12/30/2016 1:13:38 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 1:16:55 PM] [IP PROTEGIDO]:5143/76561198099557153/Pardalzenho disconnecting: closing
+[12/30/2016 1:17:51 PM] SHANUB[8829465/76561198102772979] was killed by wolf (wolf)
+[12/30/2016 1:20:53 PM] Saved 49,648 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 1:20:53 PM] Saving complete
+[12/30/2016 1:21:45 PM] [IP PROTEGIDO]:5355/76561198099557153/Pardalzenho joined [windows/76561198099557153]
+[12/30/2016 1:29:30 PM] [IP PROTEGIDO]:5355/76561198099557153/Pardalzenho disconnecting: closing
+[12/30/2016 1:30:51 PM] Saved 49,655 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 1:30:51 PM] Saving complete
+[12/30/2016 1:40:50 PM] Saved 49,662 ents, serialization(0.00), write(0.01), disk(0.12) totalstall(0.03).
+[12/30/2016 1:40:50 PM] Saving complete
+[12/30/2016 1:41:10 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 1:46:42 PM] [IP PROTEGIDO]:51401/76561198281464703/flcf.com joined [windows/76561198281464703]
+[12/30/2016 1:50:48 PM] Saved 49,665 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 1:50:48 PM] Saving complete
+[12/30/2016 2:00:47 PM] Saved 49,659 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 2:00:47 PM] Saving complete
+[12/30/2016 2:08:25 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 2:18:27 PM] flcf.com[10070568/76561198281464703] was killed by wolf (wolf)
+[12/30/2016 2:20:13 PM] [IP PROTEGIDO]:65420/76561198281464703/flcf.com joined [windows/76561198281464703]
+[12/30/2016 2:20:44 PM] Saved 49,656 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 2:20:44 PM] Saving complete
+[12/30/2016 2:30:42 PM] Saved 49,636 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 2:30:42 PM] Saving complete
+[12/30/2016 2:32:43 PM] [IP PROTEGIDO]:59450/76561198080231693/Porc1 joined [windows/76561198080231693]
+[12/30/2016 2:33:09 PM] [IP PROTEGIDO]:13684/76561198050085513/secchinho <3 RoKZERA joined [windows/76561198050085513]
+[12/30/2016 2:40:41 PM] Saved 49,658 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 2:40:41 PM] Saving complete
+[12/30/2016 2:42:46 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 2:50:39 PM] Saved 49,651 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.04).
+[12/30/2016 2:50:39 PM] Saving complete
+[12/30/2016 2:53:43 PM] flcf.com[10080897/76561198281464703] was killed by bear (bear)
+[12/30/2016 2:53:49 PM] flcf.com[10080897/76561198281464703] was killed by bear (bear)
+[12/30/2016 2:55:35 PM] secchinho <3 RoKZERA[9302400/76561198050085513] was killed by A u T o N o M i C[3906153/76561198277528117]
+[12/30/2016 2:59:43 PM] BiroCatchorro �[9858297/76561198184115541] was killed by wolf (wolf)
+[12/30/2016 2:59:57 PM] cleitonmoira46[1770747/76561198313391287] was killed by secchinho <3 RoKZERA[9302400/76561198050085513]
+[12/30/2016 3:00:38 PM] Saved 49,633 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 3:00:38 PM] Saving complete
+[12/30/2016 3:01:01 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 3:09:51 PM] [IP PROTEGIDO]:52971/76561198327938984/TeTeu disconnecting: disconnect
+[12/30/2016 3:10:36 PM] Saved 49,616 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 3:10:36 PM] Saving complete
+[12/30/2016 3:12:11 PM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 3:13:34 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 3:20:35 PM] Saved 49,524 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 3:20:35 PM] Saving complete
+[12/30/2016 3:22:02 PM] [IP PROTEGIDO]:58195/76561198327938984/TeTeu disconnecting: closing
+[12/30/2016 3:28:49 PM] Porc1[8443835/76561198080231693] was killed by bear (bear)
+[12/30/2016 3:30:34 PM] Saved 49,502 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 3:30:34 PM] Saving complete
+[12/30/2016 3:40:32 PM] Saved 49,562 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 3:40:32 PM] Saving complete
+[12/30/2016 3:43:26 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 3:47:53 PM] [IP PROTEGIDO]:48428/76561198068139391/rocknrollhl joined [windows/76561198068139391]
+[12/30/2016 3:49:58 PM] Niih[450110/76561198224103524] was killed by A u T o N o M i C[3906153/76561198277528117]
+[12/30/2016 3:50:31 PM] Saved 49,446 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 3:50:31 PM] Saving complete
+[12/30/2016 3:51:42 PM] [IP PROTEGIDO]:65138/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 4:00:29 PM] Saved 49,443 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 4:00:29 PM] Saving complete
+[12/30/2016 4:07:47 PM] secchinho <3 RoKZERA[9302400/76561198050085513] was killed by Radiation
+[12/30/2016 4:08:23 PM] [IP PROTEGIDO]:13684/76561198050085513/secchinho <3 RoKZERA disconnecting: disconnect
+[12/30/2016 4:08:56 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 4:17:54 PM] [IP PROTEGIDO]:59146/76561197987989182/elano_revel joined [windows/76561197987989182]
+[12/30/2016 4:19:24 PM] [IP PROTEGIDO]:27657/76561198027475462/Marvado joined [windows/76561198027475462]
+[12/30/2016 4:20:26 PM] Saved 49,453 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 4:20:26 PM] Saving complete
+[12/30/2016 4:21:53 PM] [IP PROTEGIDO]:65109/76561198099644806/opa joined [windows/76561198099644806]
+[12/30/2016 4:28:45 PM] Marvado[10125964/76561198027475462] was killed by bear (bear)
+[12/30/2016 4:30:25 PM] Saved 49,462 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 4:30:25 PM] Saving complete
+[12/30/2016 4:37:37 PM] [IP PROTEGIDO]:46572/76561198313391287/cleitonmoira46 disconnecting: disconnect
+[12/30/2016 4:37:42 PM] [IP PROTEGIDO]:23369/76561198277528117/A u T o N o M i C disconnecting: disconnect
+[12/30/2016 4:38:45 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 4:40:23 PM] Saved 49,461 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 4:40:23 PM] Saving complete
+[12/30/2016 4:41:53 PM] [IP PROTEGIDO]:60915/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 4:47:13 PM] [IP PROTEGIDO]:14177/76561198174768361/icemen joined [windows/76561198174768361]
+[12/30/2016 4:48:10 PM] [IP PROTEGIDO]:14177/76561198174768361/icemen disconnecting: disconnect
+[12/30/2016 4:50:22 PM] Saved 49,440 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 4:50:22 PM] Saving complete
+[12/30/2016 4:51:14 PM] [IP PROTEGIDO]:65109/76561198099644806/opa disconnecting: disconnect
+[12/30/2016 4:51:55 PM] [IP PROTEGIDO]:58759/76561198099644806/opa joined [windows/76561198099644806]
+[12/30/2016 5:00:20 PM] Saved 49,427 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 5:00:20 PM] Saving complete
+[12/30/2016 5:05:36 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 5:11:58 PM] [IP PROTEGIDO]:52805/76561198080231693/Porc1 joined [windows/76561198080231693]
+[12/30/2016 5:20:17 PM] Saved 49,415 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 5:20:17 PM] Saving complete
+[12/30/2016 5:21:49 PM] [IP PROTEGIDO]:58265/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 5:30:15 PM] Saved 49,442 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 5:30:15 PM] Saving complete
+[12/30/2016 5:34:29 PM] [IP PROTEGIDO]:52597/76561198022246749/Henri Zombie joined [windows/76561198022246749]
+[12/30/2016 5:34:55 PM] elano_revel[10125289/76561197987989182] was killed by bear (bear)
+[12/30/2016 5:35:51 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 5:36:08 PM] [IP PROTEGIDO]:57240/76561198054475373/Lito joined [windows/76561198054475373]
+[12/30/2016 5:36:36 PM] [IP PROTEGIDO]:20730/76561198050085513/secchinho <3 RoKZERA joined [windows/76561198050085513]
+[12/30/2016 5:36:52 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 5:36:56 PM] secchinho <3 RoKZERA[9302400/76561198050085513] was suicide by Suicide
+[12/30/2016 5:38:17 PM] [IP PROTEGIDO]:50482/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 5:41:17 PM] [IP PROTEGIDO]:5362/76561198099557153/Pardalzenho joined [windows/76561198099557153]
+[12/30/2016 5:42:22 PM] [IP PROTEGIDO]:53762/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 5:43:28 PM] Marvado[10125964/76561198027475462] was killed by bear (bear)
+[12/30/2016 5:46:04 PM] [IP PROTEGIDO]:57240/76561198054475373/Lito disconnecting: closing
+[12/30/2016 5:47:26 PM] [IP PROTEGIDO]:27657/76561198027475462/Marvado disconnecting: closing
+[12/30/2016 5:50:12 PM] Saved 49,438 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 5:50:12 PM] Saving complete
+[12/30/2016 5:51:30 PM] [IP PROTEGIDO]:27618/76561198027475462/Marvado joined [windows/76561198027475462]
+[12/30/2016 5:53:59 PM] Lito[10163622/76561198054475373] was killed by elano_revel[10125289/76561197987989182]
+[12/30/2016 5:55:16 PM] [IP PROTEGIDO]:57318/76561198128183924/Abhner joined [windows/76561198128183924]
+[12/30/2016 5:56:15 PM] [IP PROTEGIDO]:57318/76561198128183924/Abhner disconnecting: disconnect
+[12/30/2016 6:00:11 PM] Saved 49,425 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 6:00:11 PM] Saving complete
+[12/30/2016 6:00:13 PM] [IP PROTEGIDO]:57308/76561198054475373/Lito joined [windows/76561198054475373]
+[12/30/2016 6:02:02 PM] [IP PROTEGIDO]:57122/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 6:02:33 PM] [IP PROTEGIDO]:57308/76561198054475373/Lito disconnecting: disconnect
+[12/30/2016 6:03:42 PM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 6:04:20 PM] [IP PROTEGIDO]:57445/76561198054475373/Lito joined [windows/76561198054475373]
+[12/30/2016 6:05:15 PM] [IP PROTEGIDO]:62225/76561198147108896/eduardocastilho23 joined [windows/76561198147108896]
+[12/30/2016 6:08:06 PM] Henri Zombie[8214514/76561198022246749] was killed by Cold
+[12/30/2016 6:10:06 PM] [IP PROTEGIDO]:52597/76561198022246749/Henri Zombie disconnecting: closing
+[12/30/2016 6:10:09 PM] Saved 49,418 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 6:10:09 PM] Saving complete
+[12/30/2016 6:11:04 PM] [IP PROTEGIDO]:50956/76561198071160705/Rhaps joined [windows/76561198071160705]
+[12/30/2016 6:11:10 PM] [IP PROTEGIDO]:27618/76561198027475462/Marvado disconnecting: closing
+[12/30/2016 6:13:40 PM] Porc1[8443835/76561198080231693] was killed by patrolhelicopter (entity)
+[12/30/2016 6:13:47 PM] elano_revel[10125289/76561197987989182] was killed by wolf (wolf)
+[12/30/2016 6:14:10 PM] Marvado[10125964/76561198027475462] was killed by wolf (wolf)
+[12/30/2016 6:14:18 PM] rocknrollhl[5815380/76561198068139391] was killed by patrolhelicopter (entity)
+[12/30/2016 6:14:51 PM] [IP PROTEGIDO]:27662/76561198027475462/Marvado joined [windows/76561198027475462]
+[12/30/2016 6:16:37 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 6:17:48 PM] Lito[10171521/76561198054475373] was suicide by Suicide
+[12/30/2016 6:21:34 PM] elano_revel[10125289/76561197987989182] died (Bleeding)
+[12/30/2016 6:21:49 PM] Lito[10171521/76561198054475373] was suicide by Suicide
+[12/30/2016 6:25:19 PM] eduardocastilho23[10173925/76561198147108896] was suicide by Suicide
+[12/30/2016 6:29:13 PM] eduardocastilho23[10173925/76561198147108896] was killed by elano_revel[10125289/76561197987989182]
+[12/30/2016 6:30:06 PM] Saved 49,342 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 6:30:06 PM] Saving complete
+[12/30/2016 6:30:49 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 6:39:33 PM] Lito[10171521/76561198054475373] was killed by Cold
+[12/30/2016 6:40:05 PM] Saved 49,343 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 6:40:05 PM] Saving complete
+[12/30/2016 6:41:46 PM] eduardocastilho23[10173925/76561198147108896] was killed by bear (bear)
+[12/30/2016 6:44:22 PM] eduardocastilho23[10173925/76561198147108896] was suicide by Suicide
+[12/30/2016 6:45:27 PM] [IP PROTEGIDO]:62225/76561198147108896/eduardocastilho23 disconnecting: disconnect
+[12/30/2016 6:45:32 PM] [IP PROTEGIDO]:49347/76561198317805942/xeidpulga joined [windows/76561198317805942]
+[12/30/2016 6:46:05 PM] [IP PROTEGIDO]:25488/76561198173633845/Shaw joined [windows/76561198173633845]
+[12/30/2016 6:50:03 PM] Saved 49,343 ents, serialization(0.01), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 6:50:03 PM] Saving complete
+[12/30/2016 6:51:47 PM] [IP PROTEGIDO]:52805/76561198080231693/Porc1 disconnecting: closing
+[12/30/2016 6:52:12 PM] [IP PROTEGIDO]:5362/76561198099557153/Pardalzenho disconnecting: closing
+[12/30/2016 6:52:20 PM] xeidpulga[10193265/76561198317805942] was suicide by Suicide
+[12/30/2016 6:58:42 PM] Porc1[8443835/76561198080231693] was killed by Rhaps[5537458/76561198071160705]
+[12/30/2016 7:00:02 PM] Saved 49,291 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 7:00:02 PM] Saving complete
+[12/30/2016 7:03:33 PM] [IP PROTEGIDO]:48428/76561198068139391/rocknrollhl disconnecting: closing
+[12/30/2016 7:03:46 PM] [IP PROTEGIDO]:50956/76561198071160705/Rhaps disconnecting: closing
+[12/30/2016 7:03:50 PM] Lito[10171521/76561198054475373] was killed by wolf (wolf)
+[12/30/2016 7:04:08 PM] [IP PROTEGIDO]:57445/76561198054475373/Lito disconnecting: disconnect
+[12/30/2016 7:05:03 PM] [IP PROTEGIDO]:25488/76561198173633845/Shaw disconnecting: disconnect
+[12/30/2016 7:05:20 PM] [IP PROTEGIDO]:49347/76561198317805942/xeidpulga disconnecting: disconnect
+[12/30/2016 7:06:23 PM] [IP PROTEGIDO]:27662/76561198027475462/Marvado disconnecting: closing
+[12/30/2016 7:09:13 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 7:19:59 PM] Saved 49,197 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 7:19:59 PM] Saving complete
+[12/30/2016 7:28:14 PM] [IP PROTEGIDO]:53852/76561198032260300/leonardo joined [windows/76561198032260300]
+[12/30/2016 7:29:57 PM] Saved 49,229 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 7:29:57 PM] Saving complete
+[12/30/2016 7:34:48 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 7:37:02 PM] [IP PROTEGIDO]:57427/76561198281464703/flcf.com joined [windows/76561198281464703]
+[12/30/2016 7:39:56 PM] Saved 49,211 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 7:39:56 PM] Saving complete
+[12/30/2016 7:42:27 PM] [IP PROTEGIDO]:53438/76561198277528117/A u T o N o M i C joined [windows/76561198277528117]
+[12/30/2016 7:47:06 PM] flcf.com[10080897/76561198281464703] was killed by bear (bear)
+[12/30/2016 7:49:54 PM] Saved 49,212 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 7:49:54 PM] Saving complete
+[12/30/2016 7:55:10 PM] A u T o N o M i C[3906153/76561198277528117] was killed by bear (bear)
+[12/30/2016 7:57:35 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 8:03:04 PM] A u T o N o M i C[3906153/76561198277528117] was suicide by Suicide
+[12/30/2016 8:03:17 PM] [IP PROTEGIDO]:53438/76561198277528117/A u T o N o M i C disconnecting: disconnect
+[12/30/2016 8:08:25 PM] [IP PROTEGIDO]:5327/76561197994298078/thf.poa joined [windows/76561197994298078]
+[12/30/2016 8:09:18 PM] [IP PROTEGIDO]:5327/76561197994298078/thf.poa disconnecting: closing
+[12/30/2016 8:09:51 PM] Saved 49,225 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 8:09:51 PM] Saving complete
+[12/30/2016 8:15:56 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 8:24:53 PM] [IP PROTEGIDO]:20730/76561198050085513/secchinho <3 RoKZERA disconnecting: closing
+[12/30/2016 8:27:02 PM] [IP PROTEGIDO]:5249/76561197994298078/thf.poa joined [windows/76561197994298078]
+[12/30/2016 8:28:01 PM] flcf.com[10080897/76561198281464703] was killed by Hunger
+[12/30/2016 8:29:48 PM] Saved 49,223 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 8:29:48 PM] Saving complete
+[12/30/2016 8:32:22 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 8:35:05 PM] [event] assets/prefabs/npc/patrol helicopter/patrolhelicopter.prefab
+[12/30/2016 8:39:46 PM] Saved 49,222 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 8:39:46 PM] Saving complete
+[12/30/2016 8:49:45 PM] Saved 49,213 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 8:49:45 PM] Saving complete
+[12/30/2016 8:59:43 PM] Saved 49,198 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 8:59:43 PM] Saving complete
+[12/30/2016 9:03:38 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 9:09:42 PM] Saved 49,172 ents, serialization(0.00), write(0.01), disk(0.34) totalstall(0.04).
+[12/30/2016 9:09:42 PM] Saving complete
+[12/30/2016 9:18:43 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 9:25:29 PM] [IP PROTEGIDO]:54160/76561198281464703/flcf.com joined [windows/76561198281464703]
+[12/30/2016 9:27:06 PM] [IP PROTEGIDO]:51750/76561198080231693/Porc1 joined [windows/76561198080231693]
+[12/30/2016 9:27:15 PM] [IP PROTEGIDO]:49444/76561198277528117/A u T o N o M i C disconnecting: disconnect
+[12/30/2016 9:27:40 PM] [IP PROTEGIDO]:54185/76561198313391287/cleitonmoira46 disconnecting: disconnect
+[12/30/2016 9:29:23 PM] [IP PROTEGIDO]:50534/76561198313391287/cleitonmoira46 joined [windows/76561198313391287]
+[12/30/2016 9:29:36 PM] [IP PROTEGIDO]:54420/76561198277528117/A u T o N o M i C joined [windows/76561198277528117]
+[12/30/2016 9:29:39 PM] Saved 49,161 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 9:29:39 PM] Saving complete
+[12/30/2016 9:36:20 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 9:39:37 PM] Saved 49,178 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 9:39:37 PM] Saving complete
+[12/30/2016 9:49:36 PM] Saved 49,172 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 9:49:36 PM] Saving complete
+[12/30/2016 9:51:02 PM] [IP PROTEGIDO]:5249/76561197994298078/thf.poa disconnecting: disconnect
+[12/30/2016 9:53:09 PM] [IP PROTEGIDO]:54420/76561198277528117/A u T o N o M i C disconnecting: disconnect
+[12/30/2016 9:59:34 PM] Saved 49,185 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 9:59:34 PM] Saving complete
+[12/30/2016 10:04:32 PM] [IP PROTEGIDO]:65002/76561198281464703/flcf.com joined [windows/76561198281464703]
+[12/30/2016 10:06:00 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab
+[12/30/2016 10:19:31 PM] Saved 49,153 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 10:19:31 PM] Saving complete
+[12/30/2016 10:27:55 PM] [IP PROTEGIDO]:31896/76561198313391287/cleitonmoira46 joined [windows/76561198313391287]
+[12/30/2016 10:28:01 PM] cleitonmoira46[1770747/76561198313391287] was killed by bear (bear)
+[12/30/2016 10:29:30 PM] Saved 49,153 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.03).
+[12/30/2016 10:29:30 PM] Saving complete
+[12/30/2016 10:29:40 PM] eduardocastilho23[10173925/76561198147108896] was killed by flcf.com[10080897/76561198281464703]
+[12/30/2016 10:31:43 PM] [IP PROTEGIDO]:31896/76561198313391287/cleitonmoira46 disconnecting: disconnect
+[12/30/2016 10:37:34 PM] [event] assets/prefabs/misc/xmas/xmasrefill.prefab
+[12/30/2016 10:38:27 PM] cleitonmoira46[1770747/76561198313391287] was killed by bear (bear)
+[12/30/2016 10:39:28 PM] Saved 49,131 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 10:39:28 PM] Saving complete
+[12/30/2016 10:43:09 PM] [IP PROTEGIDO]:57437/76561198337399454/aandreviniciuss Rejecting connection - Steam Auth Failed
+[12/30/2016 10:45:37 PM] [IP PROTEGIDO]:61283/76561198281464703/flcf.com joined [windows/76561198281464703]
+[12/30/2016 10:48:07 PM] [IP PROTEGIDO]:27677/76561198027475462/Marvado joined [windows/76561198027475462]
+[12/30/2016 10:49:27 PM] Saved 49,135 ents, serialization(0.00), write(0.02), disk(0.01) totalstall(0.04).
+[12/30/2016 10:49:27 PM] Saving complete
+[12/30/2016 10:50:40 PM] Marvado[10178830/76561198027475462] was killed by bear (bear)
+[12/30/2016 10:59:25 PM] Saved 49,116 ents, serialization(0.00), write(0.01), disk(0.01) totalstall(0.03).
+[12/30/2016 10:59:25 PM] Saving complete
+[12/30/2016 11:01:22 PM] [event] assets/prefabs/npc/cargo plane/cargo_plane.prefab

@@ -1,0 +1,5 @@
+#logs
+*.csv
+
+#node apps
+node_modules

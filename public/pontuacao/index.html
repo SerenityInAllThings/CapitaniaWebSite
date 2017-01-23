@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Capitânia - Mapa </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/header/style.css">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <style>
+        div.principal{
+            background-color: #3C3C3C;
+            border: 1px solid black;
+        }
+        table, th, td{
+            border: 1px solid black;
+        }
+        img.foto_jogador{
+            width: 32px;
+        }
+        img#imagem_carregando{ 
+        animation:.6s rotateRight infinite linear; 
+        }
+
+        @keyframes rotateRight{
+            0%{ transform:rotate(0deg); transform-origin:50% 50%; }
+            100%{ transform:rotate(360deg); }
+        }
+    </style>
+    <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
+    <script>
+        function popularTabela(){
+            document.getElementById('tabela_pontuacao').innerHTML="<img id='imagem_carregando' src=images/carregando.png></img>"
+            var conteudo_tabela = "<th>Posicao</th>";
+            conteudo_tabela += "<th></th>";
+            conteudo_tabela += "<th>Nome</th>";
+            conteudo_tabela += "<th>Matou</th>";
+            conteudo_tabela += "<th>Morreu</th>";
+             $.getJSON( "pontuacao.json", (json_info) => {
+                 json_info.forEach((registro) => {
+                    conteudo_tabela += '<tr>';
+                    conteudo_tabela += '<td>'+registro.jogador_index+'</td>';
+                    conteudo_tabela += "<td><img class='foto_jogador' src="+registro.jogador_foto+'></img></td>';
+                    conteudo_tabela += '<td>'+registro.jogador_nome+'</td>';
+                    conteudo_tabela += '<td>'+registro.jogador_kills+'</td>';
+                    conteudo_tabela += '<td>'+registro.jogador_deaths+'</td>';
+                    conteudo_tabela += '</tr>';
+                 });
+                document.getElementById('tabela_pontuacao').innerHTML = conteudo_tabela;
+             })
+        }
+    </script>
+</head>
+<body>
+    <div w3-include-html="/header/header.html"></div>
+    <script>w3IncludeHTML();</script>
+
+    <div class="col-1" style="border: 1px solid black">
+        <p> </p>
+    </div>
+
+    <div class="col-10 principal">
+        <table id="tabela_pontuacao">
+        </table>
+        <script> popularTabela() </script>
+    </div>
+
+    <div class="col-1" style="border: 1px solid black">
+        <p> </p>
+    </div>
+</body>
+
+</html>

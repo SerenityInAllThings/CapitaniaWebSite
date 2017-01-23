@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Capitânia - Mapa </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/header/style.css">
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <style>
+        div.principal{
+                background-color: #3C3C3C;
+                border: 1px solid black;
+            }
+        div#lateral{
+            background-color: gray;
+            height: 100%;
+            width: 20%;
+            float: left;
+        }
+        div#condicao{
+            background-color:khaki;
+            height: 100%;
+            width: 80%;
+            float: right;
+        }
+        div#recipiente-condicao{
+            border: 1px solid black;
+            height: 110px;
+            width: 360px;
+            overflow:hidden
+        }
+        p#nome_servidor{
+            font-weight: bold;
+            font-size: 115%;
+            margin: 0px 0px 0px 5%;
+        }
+        p#endereco_servidor{
+            margin: 0px 0px 0px 5%;
+        }
+        p#jogadores{
+            display: inline;
+            margin: 0px 0px 0px 5%;
+        }
+        p#jogadores_maximo{
+            display: inline;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function atualizarStatus(){
+            $.getJSON( "condicao.json", (json_info) => {
+                if(json_info.is_online == 1){
+                    document.getElementById('lateral').style.backgroundColor = "green";
+                    document.getElementById('jogadores').innerHTML = json_info.players;
+                    document.getElementById('jogadores_maximo').innerHTML = json_info.maxplayers;
+                }
+                else
+                    document.getElementById('lateral').style.backgroundColor = "red";
+            document.getElementById('nome_servidor').innerHTML = json_info.hostname;
+            document.getElementById('endereco_servidor').innerHTML = json_info.address + ":" + json_info.port;
+            });
+        }
+    </script>
+</head>
+<body>
+    <div w3-include-html="/header/header.html"></div>
+    <script>w3IncludeHTML();</script>
+
+    <div class="col-1" style="border: 1px solid black">
+        <!RECUO DA ESQUERDA>
+    </div>
+
+    <div class="col-10 principal">
+        <div id="recipiente-condicao">  
+            <div id="condicao">
+                <p id="nome_servidor"> CAPITÂNIA SERVEGAME </p>
+                <p id="endereco_servidor"> capelao.servergame.com </p>
+                <p id="jogadores"> 0 </p>
+                <p style="display: inline;"> / </p>
+                <p id="jogadores_maximo"> 0 </p>
+            </div>
+            <div id="lateral">
+                <script> atualizarStatus() </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-1" style="border: 1px solid black">
+       <!RECUO DA ESQUERDA>
+    </div>
+</body>
+</html>
