@@ -185,6 +185,10 @@ app.post('/deslogar', (req, res)=>{
     req.session.destroy();
 });
 
+app.post('/postar', (req, res)=>{
+    console.log(req.body.postagem);
+});
+
 
 //QUALQUER PROCEDIMENTO NOVO A SER EXECUTADO NO INICIO DO SERVIDOR DEVE SER POSTO DENTRO DO CALLBACK DO APP.LISTEN :
 var servidor = app.listen(port, () => {   

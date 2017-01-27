@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Capitânia - Mapa </title>
+    <title> Capitânia - Administrivo </title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/header/style.css">
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            var oldVal = "";
+            $("#textoEdicao").on("change keyup paste", function() {
+                var currentVal = $(this).val();
+                if(currentVal == oldVal) {
+                    return; //checando se o evento foi disparado para a mesma mudança
+                }
+
+                oldVal = currentVal;
+                //houve mudança
+                $("#editor_preview").html($('#textoEdicao').val());
+            });
+
+            $('#botaoPostar').click(()=>{
+                console.log($('#textoEdicao').val())
+                $.post('/postar', {postagem: $('#textoEdicao').val()}, ()=>{
+                    document.location.replace('/index.html');
+                });
+            });
+        });
+    </script>
     <style>
         div.principal{
             background-color: #3C3C3C;
             border: 1px solid black;
+        }
+        textarea#textoEdicao{
+            resize: none;
+            min-width: 100%;
+            max-width: 100%;
+            height: 98%;
+        }
+        div.editor{
+            min-height: 300px;
+            height: 300px;
+            border-width: 1px;
+            border-color: black;
+            border-style: solid;
+            overflow: auto;
+        }
+        div.editor_preview{
+            height: 100%;
+        }
+        button#botaoPostar{
+            width: 15%;
+            position: relative;
+            left:    85%;
+            top:   0px;
         }
     </style>
 </head>
@@ -21,11 +66,17 @@
         <p> </p>
     </div>
 
-    <div class="col-5 editor">
-        <button id="botaoDeslogar" type="button">Deslogar</button>
+    <div class="col-5 editor editor_texto"> <!editor>
+        <textarea placeholder="Editor" id="textoEdicao" autofocus></textarea>
     </div>
-    <div class="col-5 preview">
-        aloww
+    
+    <div class="col-5"> <!preview>
+        <div class="editor">
+            <div id="editor_preview">
+                Editor
+            </div>
+        </div>
+        <button type="button" id="botaoPostar">Postar!</button>
     </div>
 
     <div class="col-1" style="border: 1px solid black">
