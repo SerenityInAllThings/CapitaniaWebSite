@@ -5,10 +5,42 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/header/style.css">
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            urlVars = getUrlVars();
+            if (!urlVars.erro){
+                $('#containerLogin').css('display', 'inline');
+            }
+            else{
+                $('#containerLogin').css('display', 'inline');
+                $('#msgErro').html('ERRO AO FAZER LOGIN');
+            }
+        });
+
+        function getUrlVars()
+        {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for(var i = 0; i < hashes.length; i++)
+            {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+    </script>
     <style>
         div.principal{
             background-color: #3C3C3C;
             border: 1px solid black;
+        }
+        div#containerLogin{
+            display: none;
+        }
+        b#msgErro{
+            color: red;
         }
     </style>
 </head>
@@ -21,13 +53,16 @@
     </div>
 
     <div class="col-10 principal">
-        <form action="autenticacao" method="POST">
-            Login:<br/>
-            <input type="text" name="login"><br/>
-            Password:<br/>
-            <input type="text" name="passwd"><br/>
-            <input type="submit" value="Entrar">
-        </form>
+        <div id="containerLogin">
+            <form action="/autenticacao" method="post">
+                Login:<br/>
+                <input id="login-user" type="text" name="username" required><br/>
+                Password:<br/>
+                <input id="login-passwd" type="passwd" name="passwd" required><br/>
+                <input id="loginButton" type="submit" value="Login!">
+                <b id="msgErro"></b>
+            </form>
+        </div>
     </div>
 
     <div class="col-1" style="border: 1px solid black">

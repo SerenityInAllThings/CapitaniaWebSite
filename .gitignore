@@ -3,3 +3,6 @@
 
 #node apps
 node_modules
+
+#secret
+*.secret
