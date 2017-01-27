@@ -1,5 +1,6 @@
 ﻿var path        = require('path');
 var fs          = require('fs');
+var cheerio     = require('cheerio');
 var querystring = require('querystring');
 var Promise     = require("bluebird");
 var express     = require('express');
@@ -186,7 +187,39 @@ app.post('/deslogar', (req, res)=>{
 });
 
 app.post('/postar', (req, res)=>{
-    console.log(req.body.postagem);
+    if(req.session.username){
+        console.log(req.body.postagem);
+        fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', (err, data)=>{
+            if (err){
+                //ERRO AO LER INDEX.HTML
+                console.log('!!! ERRO AO LER INDEX.HTML !!!');
+                console.log(`Erro: ${err}`);
+            }
+            else{
+                $ = cheerio.load(data);
+
+                var id = (new Date()).getTime().toString();
+                var novaDiv = `<div id=${id}></div>`
+                $('#containerPostagens').append(novaDiv)
+                
+                $(`#${id}`).html(req.body.postagem);
+                fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', (err, data)=>{
+                    if (err){
+                        console.log('!!! ERRO AO GRAVAR POSTAGEM.');
+                        console.log(`Erro: ${err}`);
+                    }
+                    else{
+                        console.log(`Postagem feita por ${req.session.username}`);
+                    }
+                });
+            }
+        })
+    }
+    else{
+        console.log('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!');
+        console.log('HTML NÃO FOI ALTERADO!');
+        console.log(`postagem: ${req.body.postagem}`);
+    }    
 });
 
 

@@ -7,7 +7,7 @@ module.exports = {
         return new Promise((resolve, reject)=>{
             checarArquivoUsuarios().then(
                 ()=>{
-                    fs.readFile(path.join(__dirname, 'users.secret'), 'utf8', (err, data)=>{
+                    fs.readFile(path.join(path.dirname(__dirname), 'users.secret'), 'utf8', (err, data)=>{
                         if(err){
                             //ERRO AO LER ARQUIVO USERS.SECRET
                             console.log('!!!!!ERRO AO AUTENTICAR USUÁRIOS!!!!!!!');
@@ -36,12 +36,12 @@ module.exports = {
 
 function checarArquivoUsuarios(){
     return new Promise((resolve, reject)=>{
-        fs.access(path.join(__dirname, 'users.secret'), (err)=>{
+        fs.access(path.join(path.dirname(__dirname),'users.secret'), (err)=>{
             if (err){
                 //ARQUIVO USERS.SECRET NÃO ENCONTRADO.
                 console.log('Arquivo Users.secret não encontrado.');
                 var usuarioPadrao = {admin: "admin"};
-                fs.writeFile(path.join(__dirname, 'users.secret'), JSON.stringify(usuarioPadrao), (err)=>{
+                fs.writeFile(path.join(path.dirname(__dirname), 'users.secret'), JSON.stringify(usuarioPadrao), (err)=>{
                     if(err){
                         console.log('!!! ERRO AO TENTAR CRIAR ARQUIVO DE USUÁRIO PADRÃO!!!');
                         reject(err);
