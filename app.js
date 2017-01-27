@@ -45,7 +45,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 //RECUPERANDO SECRET PARA SER USADO NO SESSION PARSER:
 try{
-    console.log(path.join(__dirname, 'cookie.secret'));
     fs.accessSync(path.join(__dirname, 'cookie.secret') , fs.constants.F_OK)
     var secret = JSON.parse(fs.readFileSync(path.join(__dirname, 'cookie.secret'), 'utf8')).secret;
 }
@@ -58,7 +57,9 @@ catch(err){
 app.use(session({
     secret: secret,
     name: 'loginCapitania',
-    cookie: {maxAge: 60 * 60 * 1000}
+    cookie: {maxAge: 60 * 60 * 1000},
+    resave: false,
+    saveUninitialized: false
 }));
 
 //GERENTE DE REQUESTS GET:
@@ -190,7 +191,7 @@ var servidor = app.listen(port, () => {
 //CONFIGURAÇÃO DE Temporizadores:
 function retornaIntervaloJSONConfiguracao(objeto_json){
     var ultimaConfiguracao = JSON.parse(fs.readFileSync('ultimaConfiguracao.cfg', 'utf8'));
-    console.log(`Sobre o intervalo entre atualizações do(a) ${objeto_json}r.
+    console.log(`\nSobre o intervalo entre atualizações do(a) ${objeto_json}.
 Aperte enter para usar a ultima configuracão.`);
     do{
         var temporizador = parseInt(prompt(`Insira intervalo: (minutos) (${ultimaConfiguracao[objeto_json].temporizador})`, ultimaConfiguracao[objeto_json].temporizador));
