@@ -57,7 +57,10 @@ catch(err){
 app.use(session({
     secret: secret,
     name: 'loginCapitania',
-    cookie: {maxAge: 60 * 60 * 1000},
+    cookie: {
+        maxAge: 60 * 60 * 1000,
+        httpOnly: false    
+    },
     resave: false,
     saveUninitialized: false
 }));
@@ -156,9 +159,8 @@ app.post('/autenticacao', (req, res)=>{
     var registroRequest = `${req.ip}\t${req.path}\t${data.RetornaData()}`;
     console.log(registroRequest);
 
-    console.log(req.body);
-
     autenticacao.tentarAutenticacao(req.body.username, req.body.passwd).then(
+        //AUTENTICADO
         ()=>{
             if(req.session.username){
                 console.log('usuário já estava autenticado!!');
@@ -168,10 +170,15 @@ app.post('/autenticacao', (req, res)=>{
             res.redirect('/admin/index.html');
             
         },
+        //NÃO AUTENTICADO
         ()=>{
+            var erro = {
+                autenticacao: false
+            };
+            res.redirect(`/login/index.html?${querystring.stringify(erro)}`);
             console.log('USUÁRIO NÃO AUTENTICADO');
         }
-    );
+    )
 });
 
 app.post('/deslogar', (req, res)=>{
