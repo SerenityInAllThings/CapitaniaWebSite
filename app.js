@@ -225,7 +225,7 @@ app.post('/postar', (req, res)=>{
 
 //QUALQUER PROCEDIMENTO NOVO A SER EXECUTADO NO INICIO DO SERVIDOR DEVE SER POSTO DENTRO DO CALLBACK DO APP.LISTEN :
 var servidor = app.listen(port, () => {   
-    console.log(`Servidor rodando na porta: ${port}`);
+    console.log(`Servidor rodando na porta: ${port}\n`);
     condicao.atualizarJSONCondicao();
     pontuacao.atualizarPontuacao(ipAdminTools, steamAPIKEY);
     log.recuperarPathInicial();
@@ -235,12 +235,13 @@ var servidor = app.listen(port, () => {
 //CONFIGURAÇÃO DE Temporizadores:
 function retornaIntervaloJSONConfiguracao(objeto_json){
     var ultimaConfiguracao = JSON.parse(fs.readFileSync('ultimaConfiguracao.cfg', 'utf8'));
-    console.log(`\nSobre o intervalo entre atualizações do(a) ${objeto_json}.
+    console.log(`Sobre o intervalo entre atualizações do(a) ${objeto_json}.
 Aperte enter para usar a ultima configuracão.`);
     do{
         var temporizador = parseInt(prompt(`Insira intervalo: (minutos) (${ultimaConfiguracao[objeto_json].temporizador})`, ultimaConfiguracao[objeto_json].temporizador));
     }
     while(isNaN(temporizador));
+    console.log('\n');
     ultimaConfiguracao[objeto_json].temporizador = temporizador;
     fs.writeFileSync('ultimaConfiguracao.cfg', JSON.stringify(ultimaConfiguracao), 'utf8');    
     return temporizador * 60 * 1000;
