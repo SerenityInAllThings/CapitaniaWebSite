@@ -1,6 +1,7 @@
 var fs      = require('fs');
 var path    = require('path');
 var Promise = require('bluebird');
+var chalk   = require('chalk');
 
 module.exports = {
     tentarAutenticacao: function(username, passwd){
@@ -10,8 +11,8 @@ module.exports = {
                     fs.readFile(path.join(path.dirname(__dirname), 'users.secret'), 'utf8', (err, data)=>{
                         if(err){
                             //ERRO AO LER ARQUIVO USERS.SECRET
-                            console.log('!!!!!ERRO AO AUTENTICAR USUÁRIOS!!!!!!!');
-                            console.log(`Erro: ${err}`);
+                            console.log(chalk.red('!!!!!ERRO AO AUTENTICAR USUÁRIOS!!!!!!!'));
+                            console.log(chalk.red(`Erro: ${err}`));
                         }
                         else{
                             usuarios = JSON.parse(data);
@@ -25,8 +26,8 @@ module.exports = {
                     });
                 },
                 (err)=>{
-                    console.log('!!!!!ERRO AO AUTENTICAR USUÁRIOS!!!!!!!');
-                    console.log(`Erro: ${err}`);
+                    console.log(chalk.red('!!!!!ERRO AO AUTENTICAR USUÁRIOS!!!!!!!'));
+                    console.log(chalk.red(`Erro: ${err}`));
                     reject();
                 }
             );
@@ -43,11 +44,11 @@ function checarArquivoUsuarios(){
                 var usuarioPadrao = {admin: "admin"};
                 fs.writeFile(path.join(path.dirname(__dirname), 'users.secret'), JSON.stringify(usuarioPadrao), (err)=>{
                     if(err){
-                        console.log('!!! ERRO AO TENTAR CRIAR ARQUIVO DE USUÁRIO PADRÃO!!!');
+                        console.log(chalk.red('!!! ERRO AO TENTAR CRIAR ARQUIVO DE USUÁRIO PADRÃO!!!'));
                         reject(err);
                     }
                     else{
-                        console.log('FOI CRIADO UM ARQUIVO DE USUÁRIOS CONTENDO UM USUÁRIO PADRÃO, EDITAR QUANDO POSSÍVEL!');
+                        console.log(chalk.yellow('FOI CRIADO UM ARQUIVO DE USUÁRIOS CONTENDO UM USUÁRIO PADRÃO, EDITAR QUANDO POSSÍVEL!'));
                         resolve();
                     }
                 });

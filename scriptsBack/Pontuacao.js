@@ -2,6 +2,7 @@ var request     = require('request');
 var Promise     = require("bluebird");
 var async       = require('async');
 var fs          = require('fs');
+var chalk       = require('chalk');
 
 function requestJSONPontuacao(ipAdminTools){
     return new Promise((resolve, reject)=>{
@@ -80,16 +81,16 @@ module.exports = {
                 });
                 Promise.all(arrayPromisesFotos).then((values)=>{
                     fs.writeFile('public/pontuacao/pontuacao.json', JSON.stringify(values), () => {
-                        console.log('A pontuacao foi atualizada.');
+                        console.log(chalk.green('A pontuacao foi atualizada.'));
                     });
                 });
             })
             .catch((err)=>{
-                console.log(err);
+                console.log(chalk.red(err));
             });
         })
         .catch((err)=>{
-            console.log(err);
+            console.log(chalk.red(err));
         });
     }
 };

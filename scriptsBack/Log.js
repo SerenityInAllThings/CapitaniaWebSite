@@ -2,6 +2,7 @@ var fs              = require('fs');
 var path            = require('path');
 var exec            = require('child_process').exec;
 var prompt          = require('prompt-sync')({sigint: false});
+var chalk           = require('chalk');
 var pathLogInicial  = null;
 
 function checaPath(path){
@@ -9,7 +10,7 @@ function checaPath(path){
         fs.accessSync(path , fs.constants.F_OK)
     }
     catch(err){
-        console.log('path inválido. Arquivo não existe ou é inacessível.')
+        console.log(chalk.red('path inválido. Arquivo não existe ou é inacessível.'));
         return true;
     }
     return false;
@@ -23,14 +24,14 @@ module.exports = {
         pathLogFinal = pathLogSite+'logTMP.log'
         exec(`copy /y ${pathLogInicial} ${pathLogFinal}`,(error, stdout, stderr) => {
             if (error){
-                console.log('Erro ao recuperar o log completo do servidor:');
+                console.log(chalk.red('Erro ao recuperar o log completo do servidor:'));
                 console.log(error);
                 console.log(stderr);
             }
             else{
                 fs.readFile(pathLogFinal, 'utf8', (err, data)=>{
                     if(err){
-                        console.log('erro ao ler log.log');
+                        console.log(chalk.red('erro ao ler log.log'));
                         console.log(err);
                     }
                     else{
@@ -38,7 +39,7 @@ module.exports = {
                         pathLogFinaltxt = pathLogSite+'public\\log\\log.txt'
                         fs.writeFile(pathLogFinaltxt, data, ()=>{
                             exec(`del ${pathLogFinal}`, (err, stdout, stderr)=>{
-                                console.log('Log Atualizado.')
+                                console.log(chalk.green('Log Atualizado.'));
                             });
                         });
                     }

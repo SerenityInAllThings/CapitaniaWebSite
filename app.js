@@ -1,5 +1,6 @@
 ﻿var path        = require('path');
 var fs          = require('fs');
+var chalk       = require('chalk');
 var cheerio     = require('cheerio');
 var querystring = require('querystring');
 var Promise     = require("bluebird");
@@ -51,9 +52,9 @@ try{
     var secret = JSON.parse(fs.readFileSync(path.join(__dirname, 'cookie.secret'), 'utf8')).secret;
 }
 catch(err){
-    console.log('Arquivo .secret não encontrado.');
-    console.log("Crie um arquivo com nome 'cookie.secret' na mesma pasta que app.js");
-    console.log(`O arquivo deverá ter a estrutura semelhante a:\n${JSON.stringify({secret: 'seu_secret'}, null, 2)}`)
+    console.log(chalk.red('Arquivo .secret não encontrado.'));
+    console.log(chalk.red("Crie um arquivo com nome 'cookie.secret' na mesma pasta que app.js"));
+    console.log(chalk.red(`O arquivo deverá ter a estrutura semelhante a:\n${JSON.stringify({secret: 'seu_secret'}, null, 2)}`));
     process.exit(2);
 }
 app.use(session({
@@ -135,7 +136,7 @@ app.get('/*', (req, res) => {
         var registro = `${data.RetornaData()},${req.ip},${req.path}\n`;
         var arquivoRegistro = `logSite/404/${data.RetornaDataCurta()}.csv`;
         fs.appendFile(arquivoRegistro, registro, () => {
-            console.log(`404 de ${req.path} logado`)
+            console.log(chalk.red(`404 de ${req.path} logado`));
         });
     }
 
@@ -143,7 +144,7 @@ app.get('/*', (req, res) => {
         var registro = `${data.RetornaData()},${req.ip},${req.path}\n`;
         var arquivoRegistro = `logSite/404_pastaSemIndex/${data.RetornaDataCurta()}.csv`;
         fs.appendFile(arquivoRegistro, registro, () => {
-            console.log(`404 - Pasta em index de ${req.path} logado`)
+            console.log(chalk.red(`404 - Pasta em index de ${req.path} logado`));
         });
     }
 
@@ -151,7 +152,7 @@ app.get('/*', (req, res) => {
         var registro = `${data.RetornaData()},${req.ip},${req.path}\n`;
         var arquivoRegistro = `logSite/404_arquivoRestrito/${data.RetornaDataCurta()}.csv`;
         fs.appendFile(arquivoRegistro, registro, () => {
-            console.log(`404 - Acesso restrito ${req.path} logado`)
+            console.log(chalk.red(`404 - Acesso restrito ${req.path} logado`));
         });
     }
 });
@@ -159,7 +160,7 @@ app.get('/*', (req, res) => {
 //GERENTE DE REQUESTS POST:
 app.post('/*', (req, res)=>{
     var registroRequest = `${req.ip}\t${req.path}\t${data.RetornaData()}`;
-    console.log(registroRequest);
+    console.log(chalk.blue(registroRequest));
 
     if(req.path == '/checarAutenticacao'){
         if (req.session.username){
@@ -187,7 +188,7 @@ app.post('/*', (req, res)=>{
                     autenticacao: 'erro'
                 };
                 res.redirect(`/login/index.html?${querystring.stringify(erro)}`);
-                console.log('USUÁRIO NÃO AUTENTICADO');
+                console.log(chalk.red(`USUÁRIO ${req.body.username} NÃO AUTENTICADO`));
             }
         )
     }
@@ -199,8 +200,8 @@ app.post('/*', (req, res)=>{
             fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', (err, data)=>{
                 if (err){
                     //ERRO AO LER INDEX.HTML
-                    console.log('!!! ERRO AO LER INDEX.HTML !!!');
-                    console.log(`Erro: ${err}`);
+                    console.log(chalk.red('!!! ERRO AO LER INDEX.HTML !!!'));
+                    console.log(chalk.red(`Erro: ${err}`));
                     res.send(JSON.stringify({postagem: 'erro'}))
                 }
                 else{
@@ -213,12 +214,12 @@ app.post('/*', (req, res)=>{
                     $(`#${id}`).html(req.body.postagem);
                     fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', (err, data)=>{
                         if (err){
-                            console.log('!!! ERRO AO GRAVAR POSTAGEM.');
-                            console.log(`Erro: ${err}`);
+                            console.log(chalk.red('!!! ERRO AO GRAVAR POSTAGEM.'));
+                            console.log(chalk.red(`Erro: ${err}`));
                             res.send(JSON.stringify({postagem: 'erro'}))
                         }
                         else{
-                            console.log(`Postagem feita por ${req.session.username}`);
+                            console.log(chalk.green(`Postagem feita por ${req.session.username}`));
                             res.send(JSON.stringify({postagem: 'ok'}))
                         }
                     });
@@ -226,10 +227,10 @@ app.post('/*', (req, res)=>{
             })
         }
         else{
-            console.log('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!');
-            console.log('HTML NÃO FOI ALTERADO!');
-            console.log(`postagem: ${req.body.postagem}`);
-            console.log(`IP: ${req.ip}`);
+            console.log(chalk.red('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!'));
+            console.log(chalk.red('HTML NÃO FOI ALTERADO!'));
+            console.log(chalk.red(`postagem: ${req.body.postagem}`));
+            console.log(chalk.red(`IP: ${req.ip}`));
         }    
     }
     else if(req.path == '/manipulacaoPosts'){
@@ -239,8 +240,8 @@ app.post('/*', (req, res)=>{
             function manipularHTML(err, data){
                 if (err){
                     //ERRO AO LER INDEX.HTML
-                    console.log('!!! ERRO AO LER INDEX.HTML PARA DELEÇÃO DE POST!!!');
-                    console.log(`Erro: ${err}`);
+                    console.log(chalk.red('!!! ERRO AO LER INDEX.HTML PARA DELEÇÃO DE POST!!!'));
+                    console.log(chalk.red(`Erro: ${err}`));
                     res.send(JSON.stringify({delecao: 'erro'}));
                 }
                 else{
@@ -254,21 +255,21 @@ app.post('/*', (req, res)=>{
 
             function escreverModificaoes(err, data){
                 if (err){
-                    console.log('!!! ERRO AO GRAVAR DELEÇÃO DE POSTAGEM.');
-                    console.log(`Erro: ${err}`);
+                    console.log(chalk.red('!!! ERRO AO GRAVAR DELEÇÃO DE POSTAGEM.'));
+                    console.log(chalk.red(`Erro: ${err}`));
                     res.send(JSON.stringify({delecao: 'erro'}));
                 }
                 else{
-                    console.log(`Deleção do post ${req.body.id} feita por ${req.session.username}`);
+                    console.log(chalk.green(`Deleção do post ${req.body.id} feita por ${req.session.username}`));
                     res.send(JSON.stringify({delecao: 'ok'}));
                 }
             }
         }
         else{
-            console.log('!!!TENTATIVA DE DELEÇÂO SEM ESTAR LOGADO!!!');
-            console.log('HTML NÃO FOI ALTERADO!');
-            console.log(`deleção do post: ${req.body.id}`);
-            console.log(`IP: ${req.ip}`);
+            console.log(chalk.red('!!!TENTATIVA DE DELEÇÂO SEM ESTAR LOGADO!!!'));
+            console.log(chalk.red('HTML NÃO FOI ALTERADO!'));
+            console.log(chalk.red(`deleção do post: ${req.body.id}`));
+            console.log(chalk.red(`IP: ${req.ip}`));
         }
     }
 });
