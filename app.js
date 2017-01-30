@@ -23,6 +23,7 @@ var steamAPIKEY     = 'DB8E56AE45FECFBD006BEC665F3D2C7A';
 var ipAdminTools    = '192.168.0.4';
 var port            = argv.p || 80;
 
+//PARAMETRO DE AJUDA:
 if(argv.h){
     if(argv.h == 'secret'){
         console.log('O arquivo secret é o arquivo que conterá a chave utilizada para criptografar as sessões.');
@@ -156,72 +157,78 @@ app.get('/*', (req, res) => {
 });
 
 //GERENTE DE REQUESTS POST:
-app.post('/autenticacao', (req, res)=>{
+app.post('/*', (req, res)=>{
     var registroRequest = `${req.ip}\t${req.path}\t${data.RetornaData()}`;
     console.log(registroRequest);
 
-    autenticacao.tentarAutenticacao(req.body.username, req.body.passwd).then(
-        //AUTENTICADO
-        ()=>{
-            if(req.session.username){
-                console.log('usuário já estava autenticado!!');
-            }
-            console.log('USUÁRIO AUTENTICADO');
-            req.session.username = req.body.username;
-            res.redirect('/admin/index.html');
-            
-        },
-        //NÃO AUTENTICADO
-        ()=>{
-            var erro = {
-                autenticacao: false
-            };
-            res.redirect(`/login/index.html?${querystring.stringify(erro)}`);
-            console.log('USUÁRIO NÃO AUTENTICADO');
+    if(req.path == '/checarAutenticacao'){
+        if (req.session.username){
+            res.send(JSON.stringify({login: true}));
         }
-    )
-});
-
-app.post('/deslogar', (req, res)=>{
-    req.session.destroy();
-});
-
-app.post('/postar', (req, res)=>{
-    if(req.session.username){
-        console.log(req.body.postagem);
-        fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', (err, data)=>{
-            if (err){
-                //ERRO AO LER INDEX.HTML
-                console.log('!!! ERRO AO LER INDEX.HTML !!!');
-                console.log(`Erro: ${err}`);
-            }
-            else{
-                $ = cheerio.load(data);
-
-                var id = (new Date()).getTime().toString();
-                var novaDiv = `<div id=${id}></div>`
-                $('#containerPostagens').append(novaDiv)
-                
-                $(`#${id}`).html(req.body.postagem);
-                fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', (err, data)=>{
-                    if (err){
-                        console.log('!!! ERRO AO GRAVAR POSTAGEM.');
-                        console.log(`Erro: ${err}`);
-                    }
-                    else{
-                        console.log(`Postagem feita por ${req.session.username}`);
-                    }
-                });
-            }
-        })
+        else{
+            res.send(JSON.stringify({login: false}));
+        }
     }
-    else{
-        console.log('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!');
-        console.log('HTML NÃO FOI ALTERADO!');
-        console.log(`postagem: ${req.body.postagem}`);
-    }    
-});
+    else if (req.path == '/autenticacao'){
+        autenticacao.tentarAutenticacao(req.body.username, req.body.passwd).then(
+            //AUTENTICADO
+            ()=>{
+                if(req.session.username){
+                    console.log('usuário já estava autenticado!!');
+                }
+                console.log('USUÁRIO AUTENTICADO');
+                req.session.username = req.body.username;
+                res.redirect('/admin/index.html');
+                
+            },
+            //NÃO AUTENTICADO
+            ()=>{
+                var erro = {
+                    autenticacao: 'erro'
+                };
+                res.redirect(`/login/index.html?${querystring.stringify(erro)}`);
+                console.log('USUÁRIO NÃO AUTENTICADO');
+            }
+        )
+    }
+    else if(req.path == '/deslogar'){
+        req.session.destroy();
+    }
+    else if(req.path == '/postar'){
+        if(req.session.username){
+            fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', (err, data)=>{
+                if (err){
+                    //ERRO AO LER INDEX.HTML
+                    console.log('!!! ERRO AO LER INDEX.HTML !!!');
+                    console.log(`Erro: ${err}`);
+                }
+                else{
+                    $ = cheerio.load(data);
 
+                    var id = (new Date()).getTime().toString();
+                    var novaDiv = `\n<div id=${id} class="postagem"></div>\n`
+                    $('#containerPostagens').append(novaDiv)
+                    
+                    $(`#${id}`).html(req.body.postagem);
+                    fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', (err, data)=>{
+                        if (err){
+                            console.log('!!! ERRO AO GRAVAR POSTAGEM.');
+                            console.log(`Erro: ${err}`);
+                        }
+                        else{
+                            console.log(`Postagem feita por ${req.session.username}`);
+                        }
+                    });
+                }
+            })
+        }
+        else{
+            console.log('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!');
+            console.log('HTML NÃO FOI ALTERADO!');
+            console.log(`postagem: ${req.body.postagem}`);
+        }    
+    }
+});
 
 //QUALQUER PROCEDIMENTO NOVO A SER EXECUTADO NO INICIO DO SERVIDOR DEVE SER POSTO DENTRO DO CALLBACK DO APP.LISTEN :
 var servidor = app.listen(port, () => {   

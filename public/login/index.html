@@ -9,38 +9,66 @@
     <script src="/scriptsFront/deslogar.js"></script>
     <script>
         $(document).ready(()=>{
-            if(getCookie('loginCapitania')){
-                $('#containerLogado').css('display', 'inline');
-                $('#containerLogin').css('display', 'none');
-            }else if(!getUrlVars().autenticacao){
-                $('#containerLogin').css('display', 'inline');
-            }
-            else{
-                $('#containerLogin').css('display', 'inline');
-                $('#msgErro').html('ERRO AO FAZER LOGIN');
-            }
+            $.post('/checarAutenticacao', null, (data, status)=>{
+                if(data.login){
+                    //LOGADO
+                    interfaceParaLogin_esconder();
+                    interfaceParaLogado_mostrar();
+                }
+                else{
+                    //NÃO LOGADO
+                    interfaceParaLogado_esconder();
+                    interfaceParaLogin_mostrar();
+                    if(getUrlVars().autenticacao){
+                        apresentarErro('Erro ao autenticar.');
+                    }
+                }
+
+            }, 'json')
+            .fail(()=>{
+                //ERRO NO REQUEST
+                interfaceParaLogado_esconder();
+                interfaceParaLogin_mostrar();
+                if(getUrlVars().autenticacao){
+                    apresentarErro('Erro ao postar autenticação.');
+                }
+            });
 
             $('#botaoDeslogar').click(()=>{
                 deslogar();
             });
-        });
 
-        function getUrlVars()
-        {
-            var UrlVars={};
-            document.location.search.substring(1,document.location.search.length).split('&').forEach((v)=>{UrlVars[v.split('=')[0]]=v.split('=')[1]});
-            return UrlVars;
-        }
-
-        function getCookie(cname){
-            var r;
-            document.cookie.split(";").forEach((c)=>{
-                if (c.indexOf(cname) != -1){
-                    r = true;
-                }
+            $('#botaoAdmin').click(()=>{
+                window.location.replace('/admin/');
             });
-            return r;
-        }
+
+            function interfaceParaLogin_mostrar(){
+                $('#containerLogin').css('display', 'inline');
+            }
+            
+            function interfaceParaLogin_esconder(){
+                $('#containerLogin').css('display', 'none');
+            }
+
+            function interfaceParaLogado_mostrar(){
+                $('#containerLogado').css('display', 'inline');
+            }
+
+            function interfaceParaLogado_esconder(){
+                $('#containerLogado').css('display', 'none');
+            }
+
+            function apresentarErro(erro){
+                $('#msgErro').html(erro);
+            }
+
+            function getUrlVars()
+            {
+                var UrlVars={};
+                document.location.search.substring(1,document.location.search.length).split('&').forEach((v)=>{UrlVars[v.split('=')[0]]=v.split('=')[1]});
+                return UrlVars;
+            }
+        });
     </script>
     <style>
         div.principal{
@@ -79,6 +107,7 @@
         </div>
         <div id="containerLogado">
             <button id="botaoDeslogar" type="button">Deslogar</button>
+            <button id="botaoAdmin" type="button">Página Administrativa</button>
         </div>
     </div>
 

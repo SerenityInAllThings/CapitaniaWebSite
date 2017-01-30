@@ -5,6 +5,27 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="header/style.css">
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
+    <script>
+        $.ajax({
+            url: '/checarAutenticacao',
+            dataType: 'json',
+            method: 'post',
+            data: 'teste123',
+            success: (data, textStatus, jQxhr)=>{
+                if(data.login){
+                    //PROCEDIMENTO PARA MOSTRAR BOTÕES
+                }
+                else{
+                    //PROCEDIMENTO PARA ESCONDER BOTÕES
+                }
+            },
+            error: (jqXhr, textStatus, errorThrown)=>{
+                console.log(errorThrown);
+                //PROCEDIMENTO PARA ESCONDER BOTÕES
+            }
+        });
+    </script>
     <style>
         div.principal{
             background-color: #3C3C3C;
@@ -22,14 +43,10 @@
 
     <div class="col-10 principal">
         <div id="containerPostagens">
-            <h1> SELOKO NOVO SITE </h1>
-            <p> Isso ae, postagem teste mesmo, na moralzinha </p>
-        <div id="1485555594763">alowww</div><div id="1485555650609">alowws</div><div id="1485555860836">asdasdsadasda adadsa a asd <br> adsassd</div><div id="1485555959190">sdadsadasda</div><div id="1485556007435">asdadsasd</div></div>
-    </div>
-
+        </div>
     <div class="col-1" style="border: 1px solid black">
         <p> </p>
     </div>
-</body>
+</div></body>
 
 </html>
