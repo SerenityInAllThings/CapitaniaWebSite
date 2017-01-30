@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/header/style.css">
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
+    <script src="/scriptsFront/ApresentarErro.js"></script>
     <script>
         $(document).ready(()=>{
             var oldVal = "";
@@ -25,6 +26,9 @@
                     retornoInfo = JSON.parse(data);
                     if(retornoInfo.postagem=='ok'){
                         document.location.replace('/index.html');
+                    }
+                    else{
+                        apresentarErro('Erro ao postar');
                     }
                 });
             });

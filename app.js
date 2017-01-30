@@ -11,8 +11,8 @@ var cookieParser= require('cookie-parser');
 var session     = require('express-session');
 var minimist    = require("minimist");
 var argv        = minimist(process.argv.slice(2));
-
 var prompt      = require('prompt-sync')({sigint: false});
+
 var data        = require('./scriptsBack/Data.js');
 var pontuacao   = require('./scriptsBack/Pontuacao.js');
 var condicao    = require('./scriptsBack/Condicao.js');

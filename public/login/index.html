@@ -7,6 +7,7 @@
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
     <script src="/scriptsFront/deslogar.js"></script>
+    <script src="/scriptsFront/ApresentarErro.js"></script>
     <script>
         $(document).ready(()=>{
             $.post('/checarAutenticacao', null, (data, status)=>{
@@ -58,10 +59,6 @@
                 $('#containerLogado').css('display', 'none');
             }
 
-            function apresentarErro(erro){
-                $('#msgErro').html(erro);
-            }
-
             function getUrlVars()
             {
                 var UrlVars={};
@@ -81,9 +78,6 @@
         div#containerLogado{
             display: none;
         }
-        b#msgErro{
-            color: red;
-        }
     </style>
 </head>
 <body>
@@ -102,7 +96,6 @@
                 Password:<br/>
                 <input id="login-passwd" type="passwd" name="passwd" required><br/>
                 <input id="loginButton" type="submit" value="Login!">
-                <b id="msgErro"></b>
             </form>
         </div>
         <div id="containerLogado">
