@@ -15,26 +15,22 @@
                         $('.postagem').append('<button class="botaoDeletarPostagem" type="button">X</button>');
                         $('.postagem').css({border: '1px solid red'});
                         $('.botaoDeletarPostagem').click((event)=>{
-                            $.post('/manipulacaoPosts', {
-                                tipo: 'delecao',
-                                id: $(event.target).parent().attr('id')
-                            }, (data)=>{
-                                infoRetorno = JSON.parse(data);
-                                console.log(infoRetorno);
-                                console.log(infoRetorno.delecao=='ok')
-                                if (infoRetorno.delecao=='ok'){
-                                    window.location.reload();
-                                }
-                            });
+                            if(confirm(`Tem certeza que deseja deletar a postagem ${$(event.target).parent().attr('id')}?`)){
+                                $.post('/manipulacaoPosts', {
+                                    tipo: 'delecao',
+                                    id: $(event.target).parent().attr('id')
+                                }, (data)=>{
+                                    infoRetorno = JSON.parse(data);
+                                    console.log(infoRetorno);
+                                    console.log(infoRetorno.delecao=='ok')
+                                    if (infoRetorno.delecao=='ok'){
+                                        window.location.reload();
+                                    }
+                                });
+                            }
                         });
-                    } else {
-                        //NÃO LOGADO
-                    }
-
+                    } 
                 }, 'json')
-                .fail(() => {
-                    //ERRO NO REQUEST
-                });
         });
     </script>
     <style>
@@ -71,6 +67,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+<div id="1485750077734" class="postagem">sdadsa</div>
 
 
 

@@ -21,9 +21,12 @@
             });
 
             $('#botaoPostar').click(()=>{
-                console.log($('#textoEdicao').val())
-                $.post('/postar', {postagem: $('#textoEdicao').val()});
-                document.location.replace('/index.html');
+                $.post('/postar', {postagem: $('#textoEdicao').val()}, (data)=>{
+                    retornoInfo = JSON.parse(data);
+                    if(retornoInfo.postagem=='ok'){
+                        document.location.replace('/index.html');
+                    }
+                });
             });
         });
     </script>

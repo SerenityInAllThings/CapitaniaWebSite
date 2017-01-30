@@ -201,6 +201,7 @@ app.post('/*', (req, res)=>{
                     //ERRO AO LER INDEX.HTML
                     console.log('!!! ERRO AO LER INDEX.HTML !!!');
                     console.log(`Erro: ${err}`);
+                    res.send(JSON.stringify({postagem: 'erro'}))
                 }
                 else{
                     $ = cheerio.load(data);
@@ -214,9 +215,11 @@ app.post('/*', (req, res)=>{
                         if (err){
                             console.log('!!! ERRO AO GRAVAR POSTAGEM.');
                             console.log(`Erro: ${err}`);
+                            res.send(JSON.stringify({postagem: 'erro'}))
                         }
                         else{
                             console.log(`Postagem feita por ${req.session.username}`);
+                            res.send(JSON.stringify({postagem: 'ok'}))
                         }
                     });
                 }
