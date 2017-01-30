@@ -206,7 +206,7 @@ app.post('/*', (req, res)=>{
                     $ = cheerio.load(data);
 
                     var id = (new Date()).getTime().toString();
-                    var novaDiv = `\n<div id=${id} class="postagem"></div>\n`
+                    var novaDiv = `\n<div id=${id} class="postagem">\n</div>\n`
                     $('#containerPostagens').append(novaDiv)
                     
                     $(`#${id}`).html(req.body.postagem);
@@ -226,7 +226,47 @@ app.post('/*', (req, res)=>{
             console.log('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!');
             console.log('HTML NÃO FOI ALTERADO!');
             console.log(`postagem: ${req.body.postagem}`);
+            console.log(`IP: ${req.ip}`);
         }    
+    }
+    else if(req.path == '/manipulacaoPosts'){
+        if(req.session.username){
+            fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', manipularHTML);
+
+            function manipularHTML(err, data){
+                if (err){
+                    //ERRO AO LER INDEX.HTML
+                    console.log('!!! ERRO AO LER INDEX.HTML PARA DELEÇÃO DE POST!!!');
+                    console.log(`Erro: ${err}`);
+                    res.send(JSON.stringify({delecao: 'erro'}));
+                }
+                else{
+                    //LEITURA DE INDEX.HTML FEITA
+                    $ = cheerio.load(data);
+                    $(`#${req.body.id}`).remove();
+
+                    fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', escreverModificaoes);
+                }
+            }
+
+            function escreverModificaoes(err, data){
+                if (err){
+                    console.log('!!! ERRO AO GRAVAR DELEÇÃO DE POSTAGEM.');
+                    console.log(`Erro: ${err}`);
+                    res.send(JSON.stringify({delecao: 'erro'}));
+                }
+                else{
+                    console.log(`Deleção do post ${req.body.id} feita por ${req.session.username}`);
+                    res.send(JSON.stringify({delecao: 'ok'}));
+                }
+            }
+        }
+        else{
+            console.log('!!!TENTATIVA DE DELEÇÂO SEM ESTAR LOGADO!!!');
+            console.log('HTML NÃO FOI ALTERADO!');
+            console.log(`deleção do post: ${req.body.id}`);
+            console.log(`IP: ${req.ip}`);
+        }
     }
 });
 

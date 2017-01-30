@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title> Capit&#xE2;nia - In&#xED;cio</title>
     <meta charset="utf-8">
@@ -7,46 +8,78 @@
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
     <script>
-        $.ajax({
-            url: '/checarAutenticacao',
-            dataType: 'json',
-            method: 'post',
-            data: 'teste123',
-            success: (data, textStatus, jQxhr)=>{
-                if(data.login){
-                    //PROCEDIMENTO PARA MOSTRAR BOTÕES
-                }
-                else{
-                    //PROCEDIMENTO PARA ESCONDER BOTÕES
-                }
-            },
-            error: (jqXhr, textStatus, errorThrown)=>{
-                console.log(errorThrown);
-                //PROCEDIMENTO PARA ESCONDER BOTÕES
-            }
+        $(document).ready(() => {
+            $.post('/checarAutenticacao', null, (data, status) => {
+                    if (data.login) {
+                        //LOGADO
+                        $('.postagem').append('<button class="botaoDeletarPostagem" type="button">X</button>');
+                        $('.postagem').css({border: '1px solid red'});
+                        $('.botaoDeletarPostagem').click((event)=>{
+                            $.post('/manipulacaoPosts', {
+                                tipo: 'delecao',
+                                id: $(event.target).parent().attr('id')
+                            }, (data)=>{
+                                infoRetorno = JSON.parse(data);
+                                console.log(infoRetorno);
+                                console.log(infoRetorno.delecao=='ok')
+                                if (infoRetorno.delecao=='ok'){
+                                    window.location.reload();
+                                }
+                            });
+                        });
+                    } else {
+                        //NÃO LOGADO
+                    }
+
+                }, 'json')
+                .fail(() => {
+                    //ERRO NO REQUEST
+                });
         });
     </script>
     <style>
-        div.principal{
+        div.principal {
             background-color: #3C3C3C;
             border: 1px solid black;
         }
+        div.postagem {
+            position: relative;
+        }        
+        button.botaoDeletarPostagem {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
     </style>
 </head>
+
 <body>
     <div w3-include-html="header/header.html"></div>
-    <script>w3IncludeHTML();</script>
-
+    <script>
+        w3IncludeHTML();
+    </script>
     <div class="col-1" style="border: 1px solid black">
         <p> </p>
     </div>
-
     <div class="col-10 principal">
         <div id="containerPostagens">
-        </div>
+            
+            
+        
+            
+            
+
+
+
+
+
+
+
+</div>
+    </div>
     <div class="col-1" style="border: 1px solid black">
         <p> </p>
     </div>
-</div></body>
+</body>
 
 </html>
