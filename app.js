@@ -208,7 +208,7 @@ app.post('/*', (req, res)=>{
                     $ = cheerio.load(data);
 
                     var id = (new Date()).getTime().toString();
-                    var novaDiv = `\n<div id=${id} class="postagem">\n</div>\n`
+                    var novaDiv = `\n<div id=${id} class="postagem">\n</div><br><br>\n`
                     $('#containerPostagens').append(novaDiv)
                     
                     $(`#${id}`).html(req.body.postagem);
@@ -270,6 +270,62 @@ app.post('/*', (req, res)=>{
             console.log(chalk.red('HTML NÃO FOI ALTERADO!'));
             console.log(chalk.red(`deleção do post: ${req.body.id}`));
             console.log(chalk.red(`IP: ${req.ip}`));
+        }
+    }
+    else if(req.path == '/EditarPostagem'){
+        if(req.session.username){
+            //USUÁRIO LOGADO
+            if(req.body.tipoRequisicao=='RequisicaoDeConteudo'){
+                fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', retornarhtml);
+
+                function retornarhtml(err, data){
+                    if (err){
+                        console.log(chalk.red('ERRO AO LER ARQUIVO INDEX.HTML PARA REQUISIÇÃO DE POSTAGEM' + err));
+                        res.send({status: 'Erro interno de requisição de conteudo 0'});
+                    }
+                    else{
+                        $ = cheerio.load(data);
+                        res.send({
+                            status: 'ok',
+                            postagem: $(`#${req.body.idPostagem}`).html()
+                        });
+                    }
+                }
+            }
+
+            else if(req.body.tipoRequisicao=='SalvarEdicao'){
+                fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', editarhtml);
+
+                function editarhtml(err, data){
+                    if(err){
+                        console.log(chalk.red('ERRO AO LER ARQUIVO INDEX.HTML PARA EDIÇÃO DE POST' + err));
+                        res.send({status: 'Erro interno de edição 0'});
+                    }
+                    else{
+                        $ = cheerio.load(data);
+                        $(`#${req.body.idPostagem}`).html(req.body.novoTexto);
+
+                        fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', mandarResposta);
+                    }
+                }
+
+                function mandarResposta(err, data){
+                    if (err){
+                        console.log(chalk.red('ERRO AO SALVAR ARQUIVO INDEX.HTML PARA EDIÇÃO DE POST' + err));
+                        res.send({status: 'Erro interno de edição 1'});
+                    }
+                    else{
+                        console.log(chalk.blue(`Edição de post ${req.body.idPostagem} feita com sucesso por ${req.session.username}`));
+                        res.send({status: 'ok'});
+                    }
+                }
+
+            }
+        }
+        else{
+            //USUÁRIO NÃO LOGADO
+            console.log(chalk.red(`TENTATIVA DE EDIÇÃO DO POST ${req.body.idPostagem} por um usuário não autenticado!`));
+            res.send({status: 'Usuário não logado'});
         }
     }
 });
