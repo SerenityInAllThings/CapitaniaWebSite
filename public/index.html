@@ -8,148 +8,179 @@
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="/scriptsFront/jquery-3.1.1.min.js"></script>
     <script src="/scriptsFront/ApresentarErro.js"></script>
+    <script src="/scriptsFront/bluebird.js"></script>
     <script>
         $(document).ready(() => {
             var index = 0;
+            var chaveRequest = true;
 
-            $.post('/requisicaoDePostagens', {index: index}, (posts)=>{
-                posts.forEach((post)=>{
-                    $('#containerPostagens').append(`<div id='${post.data}' class='postagem'>${post.conteudo}</div>`);
-                    $('#containerPostagens').append('<br><br>');
+            //POPULAR POSTAGENS INICIAIS:
+            popularPostagens();
+
+            function popularPostagens(){
+                requisitarPosts()
+                .then(()=>{
+                    adicionarBotoesAdmin();
+                })
+                .catch((err)=>{
+                });  
+            }
+                    
+            //FUNÇÃO QUE FAZ O REQUEST E EXIBE MAIS POSTAGENS.
+            function requisitarPosts() {
+                return new Promise((resolve, reject) => {
+                    if (chaveRequest) {
+                        chaveRequest = false;
+
+                        $.post('/requisicaoDePostagens', {index: index}, (posts) => {
+                            index += 5;
+                            posts.forEach((post) => {
+                                $('#containerPostagens').append(`<div id='${post.data}' class='postagem'>${post.conteudo}</div>`);
+                                $('#containerPostagens').append('<br><br>');
+
+                                chaveRequest = true;
+                            });
+                            resolve();
+                        });
+                    } else {
+                        reject(new Error('Request já foi enviada.'))
+                    }
                 });
-            });
+            }
 
-            $.post('/checarAutenticacao', null, (data, status) => {
-                if (data.login) {
-                    //LOGADO
-                    $('.postagem').append(
-                        '<button class="botaoDeletarPostagem" type="button">X</button>');
-                    $('.postagem').append(
-                        '<button class="botaoEditarPostagem" type="button">Editar Postagem</button>'
-                    );
-                    $('.postagem').css({
-                        border: '1px solid red'
-                    });
-                    $('.botaoDeletarPostagem').click((event) => {
-                        if (confirm(
-                                `Tem certeza que deseja deletar a postagem ${$(event.target).parent().attr('id')}?`
-                            )) {
-                            $.post('/manipulacaoPosts', {
-                                tipoRequisicao: 'delecao',
-                                id: $(event.target).parent().attr('id')
-                            }, (infoRetorno) => {
-                                console.log(infoRetorno);
-                                console.log(infoRetorno.status == 'ok')
-                                if (infoRetorno.status == 'ok') {
-                                    window.location.reload();
-                                } else {
-                                    apresentarErro(infoRetorno.status);
-                                }
-                            });
-                        }
-                    });
-                    //HANDLER BOTÃO EDITAR POSTAGEM
-                    $('.botaoEditarPostagem').click((event) => {
-                        if (!$('#divContainerMaximoEdicao').length) {
-                            //DIV AINDA NÃO EXISTE
-                            $('body').append("<div id='divContainerMaximoEdicao'></div>");
-                            $('#divContainerMaximoEdicao').css({
-                                position: 'fixed',
-                                width: '100%',
-                                height: '100%'
-                            });
-                            $('#divContainerMaximoEdicao').append(
-                                "<div id='divContainerEdicao'></div>");
-                            $('#divContainerEdicao').css({
-                                margin: '0px',
-                                padding: '0px',
-                                position: 'fixed',
-                                width: '70%',
-                                height: '60%',
-                                left: '15%',
-                                top: '24%',
-                                'background-color': 'red'
-                            });
-                            //ADICIONANDO BOTÃO DE FECHAR EDIÇÃO
-                            $('#divContainerEdicao').append(
-                                '<button id="botaoFecharEdicao" type="button">X</button>');
-                            $('#botaoFecharEdicao').css({
-                                position: 'absolute',
-                                right: '0px',
-                                top: '0px',
-                                width: '2%',
-                                height: '5%',
-                                margin: '0px',
-                                padding: '0px'
-                            });
-                            //ADICIONANDO BOTÃO DE SALVAR EDIÇÃO
-                            $('#divContainerEdicao').append(
-                                '<button id="botaoSalvarEdicao" type="button">Salvar edição</button>'
-                            );
-                            $('#botaoSalvarEdicao').css({
-                                position: 'absolute',
-                                right: '2%',
-                                top: '0px',
-                                width: '15%',
-                                height: '5%',
-                                margin: '0px',
-                                padding: '0px'
-                            });
-                            //ADICIONANDO EDITOR DE TEXTO
-                            $('#divContainerEdicao').append(
-                                '<textarea placeholder="Editor" id="textoEdicao" autofocus></textarea>'
-                            );
-                            $('#textoEdicao').css({
-                                position: 'absolute',
-                                resize: 'none',
-                                width: '100%',
-                                height: '95%',
-                                top: '5%'
-                            });
-                            //ADICIONANDO TEXTO AO EDITOR
-                            conteudoPostConteudo = {
-                                tipoRequisicao: 'RequisicaoDeConteudo',
-                                idPostagem: $(event.target).parent().attr('id'),
+            function adicionarBotoesAdmin() {
+                $.post('/checarAutenticacao', null, (data, status) => {
+                    if (data.login) {
+                        //LOGADO
+                        $('.postagem').not(':has(.botaoDeletarPostagem)').append('<button class="botaoDeletarPostagem" type="button">X</button>');
+                        $('.postagem').not(':has(.botaoEditarPostagem)').append('<button class="botaoEditarPostagem" type="button">Editar Postagem</button>');
+
+                        $('.postagem').css({border: '1px solid red'});
+
+                        $('.botaoDeletarPostagem').click((event) => {
+                            if (confirm(`Tem certeza que deseja deletar a postagem ${$(event.target).parent().attr('id')}?`)) {
+                                $.post('/manipulacaoPosts', {
+                                    tipoRequisicao: 'delecao',
+                                    id: $(event.target).parent().attr('id')
+                                }, (infoRetorno) => {
+                                    console.log(infoRetorno);
+                                    console.log(infoRetorno.status == 'ok')
+                                    if (infoRetorno.status == 'ok') {window.location.reload();}
+                                    else {apresentarErro(infoRetorno.status);}
+                                });
                             }
-                            $.post('/manipulacaoPosts', conteudoPostConteudo, postSucessoConteudo,
-                                    'json')
-                                .fail((e) => {
-                                    apresentarErro('Erro ao requisitar postagem: ' + e);
+                        });
+                        //HANDLER BOTÃO EDITAR POSTAGEM
+                        $('.botaoEditarPostagem').click((event) => {
+                            if (!$('#divContainerMaximoEdicao').length) {
+                                //DIV AINDA NÃO EXISTE
+                                $('body').append("<div id='divContainerMaximoEdicao'></div>");
+                                $('#divContainerMaximoEdicao').css({
+                                    position: 'fixed',
+                                    width: '100%',
+                                    height: '100%'
+                                });
+                                $('#divContainerMaximoEdicao').append("<div id='divContainerEdicao'></div>");
+                                $('#divContainerEdicao').css({
+                                    margin: '0px',
+                                    padding: '0px',
+                                    position: 'fixed',
+                                    width: '70%',
+                                    height: '60%',
+                                    left: '15%',
+                                    top: '24%',
+                                    'background-color': 'red'
+                                });
+                                //ADICIONANDO BOTÃO DE FECHAR EDIÇÃO
+                                $('#divContainerEdicao').append(
+                                    '<button id="botaoFecharEdicao" type="button">X</button>'
+                                );
+                                $('#botaoFecharEdicao').css({
+                                    position: 'absolute',
+                                    right: '0px',
+                                    top: '0px',
+                                    width: '2%',
+                                    height: '5%',
+                                    margin: '0px',
+                                    padding: '0px'
+                                });
+                                //ADICIONANDO BOTÃO DE SALVAR EDIÇÃO
+                                $('#divContainerEdicao').append('<button id="botaoSalvarEdicao" type="button">Salvar edição</button>');
+
+                                $('#botaoSalvarEdicao').css({
+                                    position: 'absolute',
+                                    right: '2%',
+                                    top: '0px',
+                                    width: '15%',
+                                    height: '5%',
+                                    margin: '0px',
+                                    padding: '0px'
                                 });
 
-                            function postSucessoConteudo(data) {
-                                if (data.status == 'ok') {
-                                    $('#textoEdicao').val(data.postagem);
-                                } else {
-                                    apresentarErro('erro ao requisitar postagem: ' + data.status);
-                                }
-                            }
-                            //HANDLER FECHAR EDIÇÃO
-                            $('#botaoFecharEdicao').click(() => {
-                                $('#divContainerMaximoEdicao').remove();
-                            });
-                            //HANDLER SALVAR EDIÇÃO
-                            $('#botaoSalvarEdicao').click(() => {
-                                conteudoPost = {
-                                    tipoRequisicao: 'SalvarEdicao',
+                                //ADICIONANDO EDITOR DE TEXTO
+                                $('#divContainerEdicao').append('<textarea placeholder="Editor" id="textoEdicao" autofocus></textarea>');
+
+                                $('#textoEdicao').css({
+                                    position: 'absolute',
+                                    resize: 'none',
+                                    width: '100%',
+                                    height: '95%',
+                                    top: '5%'
+                                });
+
+                                //ADICIONANDO TEXTO AO EDITOR
+                                conteudoPostConteudo = {
+                                    tipoRequisicao: 'RequisicaoDeConteudo',
                                     idPostagem: $(event.target).parent().attr('id'),
-                                    novoTexto: $('#textoEdicao').val()
                                 }
-                                $.post('/manipulacaoPosts', conteudoPost, postSucesso,
-                                        'json')
-                                    .fail((e) => {
-                                        apresentarErro('Erro ao salvar postagem' +
-                                            e);
+                                $.post('/manipulacaoPosts', conteudoPostConteudo,postSucessoConteudo,'json')
+                                .fail((e) => {
+                                    reject(new error(e));
+                                    apresentarErro('Erro ao requisitar postagem: ' +e);
+                                });
+
+                                function postSucessoConteudo(data) {
+                                    if (data.status == 'ok') {
+                                        $('#textoEdicao').val(data.postagem);
+                                    } else {
+                                        apresentarErro(
+                                            'erro ao requisitar postagem: ' +
+                                            data.status);
+                                    }
+                                }
+                                //HANDLER FECHAR EDIÇÃO
+                                $('#botaoFecharEdicao').click(() => {
+                                    $('#divContainerMaximoEdicao').remove();
+                                });
+                                //HANDLER SALVAR EDIÇÃO
+                                $('#botaoSalvarEdicao').click(() => {
+                                    conteudoPost = {
+                                        tipoRequisicao: 'SalvarEdicao',
+                                        idPostagem: $(event.target).parent().attr('id'),
+                                        novoTexto: $('#textoEdicao').val()
+                                    }
+
+                                    $.post('/manipulacaoPosts',conteudoPost, postSucesso, 'json')
+                                    .fail((e) => {apresentarErro('Erro ao salvar postagem' + e);
                                     });
 
-                                function postSucesso(data) {
-                                    window.location.reload();
-                                }
-                            })
-                        }
-                    });
+                                    function postSucesso(data) {
+                                        window.location.reload();
+                                    }
+                                });
+                            }
+
+                        });
+                    } 
+                }, 'json');
+            }
+
+            //FUNÇÃO PARA REQUISITAR MAIS POSTS CONFORME SE CHEGA NO FINAL DA PÁGINA.
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() > $(document).height()-50) {
+                    popularPostagens(); 
                 }
-            }, 'json');
+            });
         });
     </script>
     <style>
@@ -173,7 +204,7 @@
             position: absolute;
             right: 2%;
             top: 0px;
-            width: 12%;
+            width: 14%;
         }
     </style>
 </head>
