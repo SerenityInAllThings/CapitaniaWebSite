@@ -10,11 +10,23 @@
     <script src="/scriptsFront/ApresentarErro.js"></script>
     <script>
         $(document).ready(() => {
+            var index = 0;
+
+            $.post('/requisicaoDePostagens', {index: index}, (posts)=>{
+                posts.forEach((post)=>{
+                    $('#containerPostagens').append(`<div id='${post.data}' class='postagem'>${post.conteudo}</div>`);
+                    $('#containerPostagens').append('<br><br>');
+                });
+            });
+
             $.post('/checarAutenticacao', null, (data, status) => {
                 if (data.login) {
                     //LOGADO
-                    $('.postagem').append('<button class="botaoDeletarPostagem" type="button">X</button>');
-                    $('.postagem').append('<button class="botaoEditarPostagem" type="button">Editar Postagem</button>');
+                    $('.postagem').append(
+                        '<button class="botaoDeletarPostagem" type="button">X</button>');
+                    $('.postagem').append(
+                        '<button class="botaoEditarPostagem" type="button">Editar Postagem</button>'
+                    );
                     $('.postagem').css({
                         border: '1px solid red'
                     });
@@ -23,23 +35,22 @@
                                 `Tem certeza que deseja deletar a postagem ${$(event.target).parent().attr('id')}?`
                             )) {
                             $.post('/manipulacaoPosts', {
-                                tipo: 'delecao',
+                                tipoRequisicao: 'delecao',
                                 id: $(event.target).parent().attr('id')
-                            }, (data) => {
-                                infoRetorno = JSON.parse(data);
+                            }, (infoRetorno) => {
                                 console.log(infoRetorno);
-                                console.log(infoRetorno.delecao == 'ok')
-                                if (infoRetorno.delecao == 'ok') {
+                                console.log(infoRetorno.status == 'ok')
+                                if (infoRetorno.status == 'ok') {
                                     window.location.reload();
                                 } else {
-                                    apresentarErro('Erro ao deletar postagem');
+                                    apresentarErro(infoRetorno.status);
                                 }
                             });
                         }
                     });
                     //HANDLER BOTÃO EDITAR POSTAGEM
-                    $('.botaoEditarPostagem').click((event)=>{
-                        if (!$('#divContainerMaximoEdicao').length){
+                    $('.botaoEditarPostagem').click((event) => {
+                        if (!$('#divContainerMaximoEdicao').length) {
                             //DIV AINDA NÃO EXISTE
                             $('body').append("<div id='divContainerMaximoEdicao'></div>");
                             $('#divContainerMaximoEdicao').css({
@@ -47,8 +58,8 @@
                                 width: '100%',
                                 height: '100%'
                             });
-
-                            $('#divContainerMaximoEdicao').append("<div id='divContainerEdicao'></div>");
+                            $('#divContainerMaximoEdicao').append(
+                                "<div id='divContainerEdicao'></div>");
                             $('#divContainerEdicao').css({
                                 margin: '0px',
                                 padding: '0px',
@@ -59,9 +70,9 @@
                                 top: '24%',
                                 'background-color': 'red'
                             });
-
                             //ADICIONANDO BOTÃO DE FECHAR EDIÇÃO
-                            $('#divContainerEdicao').append('<button id="botaoFecharEdicao" type="button">X</button>');
+                            $('#divContainerEdicao').append(
+                                '<button id="botaoFecharEdicao" type="button">X</button>');
                             $('#botaoFecharEdicao').css({
                                 position: 'absolute',
                                 right: '0px',
@@ -71,9 +82,10 @@
                                 margin: '0px',
                                 padding: '0px'
                             });
-
                             //ADICIONANDO BOTÃO DE SALVAR EDIÇÃO
-                            $('#divContainerEdicao').append('<button id="botaoSalvarEdicao" type="button">Salvar edição</button>');
+                            $('#divContainerEdicao').append(
+                                '<button id="botaoSalvarEdicao" type="button">Salvar edição</button>'
+                            );
                             $('#botaoSalvarEdicao').css({
                                 position: 'absolute',
                                 right: '2%',
@@ -83,9 +95,10 @@
                                 margin: '0px',
                                 padding: '0px'
                             });
-
                             //ADICIONANDO EDITOR DE TEXTO
-                            $('#divContainerEdicao').append('<textarea placeholder="Editor" id="textoEdicao" autofocus></textarea>');
+                            $('#divContainerEdicao').append(
+                                '<textarea placeholder="Editor" id="textoEdicao" autofocus></textarea>'
+                            );
                             $('#textoEdicao').css({
                                 position: 'absolute',
                                 resize: 'none',
@@ -93,45 +106,43 @@
                                 height: '95%',
                                 top: '5%'
                             });
-
                             //ADICIONANDO TEXTO AO EDITOR
                             conteudoPostConteudo = {
                                 tipoRequisicao: 'RequisicaoDeConteudo',
                                 idPostagem: $(event.target).parent().attr('id'),
                             }
-                            $.post('/EditarPostagem', conteudoPostConteudo, postSucessoConteudo, 'json')
-                            .fail((e)=>{
-                                apresentarErro('Erro ao requisitar postagem: ' + e);
-                            });
+                            $.post('/manipulacaoPosts', conteudoPostConteudo, postSucessoConteudo,
+                                    'json')
+                                .fail((e) => {
+                                    apresentarErro('Erro ao requisitar postagem: ' + e);
+                                });
 
-                            function postSucessoConteudo(data){
-                                if(data.status=='ok'){
+                            function postSucessoConteudo(data) {
+                                if (data.status == 'ok') {
                                     $('#textoEdicao').val(data.postagem);
-                                }
-                                else{
+                                } else {
                                     apresentarErro('erro ao requisitar postagem: ' + data.status);
-                                }                                
+                                }
                             }
-
                             //HANDLER FECHAR EDIÇÃO
-                            $('#botaoFecharEdicao').click(()=>{
+                            $('#botaoFecharEdicao').click(() => {
                                 $('#divContainerMaximoEdicao').remove();
                             });
-
                             //HANDLER SALVAR EDIÇÃO
-                            $('#botaoSalvarEdicao').click(()=>{
+                            $('#botaoSalvarEdicao').click(() => {
                                 conteudoPost = {
                                     tipoRequisicao: 'SalvarEdicao',
                                     idPostagem: $(event.target).parent().attr('id'),
                                     novoTexto: $('#textoEdicao').val()
                                 }
+                                $.post('/manipulacaoPosts', conteudoPost, postSucesso,
+                                        'json')
+                                    .fail((e) => {
+                                        apresentarErro('Erro ao salvar postagem' +
+                                            e);
+                                    });
 
-                                $.post('/EditarPostagem', conteudoPost, postSucesso, 'json')
-                                .fail((e)=>{
-                                    apresentarErro('Erro ao salvar postagem' + e);
-                                });
-
-                                function postSucesso(data){
+                                function postSucesso(data) {
                                     window.location.reload();
                                 }
                             })
@@ -146,15 +157,18 @@
             background-color: #3C3C3C;
             border: 1px solid black;
         }
+        
         div.postagem {
             position: relative;
         }
+        
         button.botaoDeletarPostagem {
             position: absolute;
             right: 0px;
             top: 0px;
             width: 2%;
         }
+        
         button.botaoEditarPostagem {
             position: absolute;
             right: 2%;
@@ -174,14 +188,7 @@
     </div>
     <div class="col-10 principal">
         <div id="containerPostagens">
-            
-            
-            
-            
-            
-        
-<br><br>
-</div>
+        </div>
     </div>
     <div class="col-1" style="border: 1px solid black">
         <p> </p>

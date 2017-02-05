@@ -1,28 +1,31 @@
-﻿var path        = require('path');
-var fs          = require('fs');
-var chalk       = require('chalk');
-var cheerio     = require('cheerio');
-var querystring = require('querystring');
-var Promise     = require("bluebird");
-var express     = require('express');
-var app         = express();
-var bodyParser  = require('body-parser');
-var cookieParser= require('cookie-parser');
-var session     = require('express-session');
-var minimist    = require("minimist");
-var argv        = minimist(process.argv.slice(2));
-var prompt      = require('prompt-sync')({sigint: false});
+﻿const path        = require('path');
+const fs          = require('fs');
+const chalk       = require('chalk');
+const cheerio     = require('cheerio');
+const querystring = require('querystring');
+const Promise     = require("bluebird");
+const express     = require('express');
+const app         = express();
+const bodyParser    = require('body-parser');
+const cookieParser  = require('cookie-parser');
+const session       = require('express-session');
+const minimist      = require("minimist");
+const argv          = minimist(process.argv.slice(2));
+const prompt        = require('prompt-sync')({sigint: false});
 
-var data        = require('./scriptsBack/Data.js');
-var pontuacao   = require('./scriptsBack/Pontuacao.js');
-var condicao    = require('./scriptsBack/Condicao.js');
-var log         = require('./scriptsBack/log.js');
-var autenticacao= require('./scriptsBack/autenticacao.js');
+const data          = require('./scriptsBack/Data.js');
+const pontuacao     = require('./scriptsBack/Pontuacao.js');
+const condicao      = require('./scriptsBack/Condicao.js');
+const log           = require('./scriptsBack/log.js');
+const autenticacao  = require('./scriptsBack/autenticacao.js');
 
 var logPathInicial  = null;
 var steamAPIKEY     = 'DB8E56AE45FECFBD006BEC665F3D2C7A';
 var ipAdminTools    = '192.168.0.4';
 var port            = argv.p || 80;
+
+var postagens       = [];
+var postagens_CHAVE = true;
 
 //PARAMETRO DE AJUDA:
 if(argv.h){
@@ -162,7 +165,10 @@ app.post('/*', (req, res)=>{
     var registroRequest = `${req.ip}\t${req.path}\t${data.RetornaData()}`;
     console.log(chalk.blue(registroRequest));
 
-    if(req.path == '/checarAutenticacao'){
+    if(req.path=='/requisicaoDePostagens'){
+        res.send(postagens.slice(req.body.index, req.body.index+5));
+    }
+    else if(req.path == '/checarAutenticacao'){
         if (req.session.username){
             res.send(JSON.stringify({login: true}));
         }
@@ -197,34 +203,54 @@ app.post('/*', (req, res)=>{
     }
     else if(req.path == '/postar'){
         if(req.session.username){
-            fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', (err, data)=>{
-                if (err){
-                    //ERRO AO LER INDEX.HTML
-                    console.log(chalk.red('!!! ERRO AO LER INDEX.HTML !!!'));
-                    console.log(chalk.red(`Erro: ${err}`));
-                    res.send(JSON.stringify({postagem: 'erro'}))
+            esperarChave();
+            function esperarChave(){
+                if (!postagens_CHAVE){
+                    setTimeout(esperarChave, 1000);
                 }
-                else{
-                    $ = cheerio.load(data);
+                else {
+                    fs.readFile(path.join(__dirname, 'public', 'postagens.json'), 'utf8', atualizarJSON);
 
-                    var id = (new Date()).getTime().toString();
-                    var novaDiv = `\n<div id=${id} class="postagem">\n</div><br><br>\n`
-                    $('#containerPostagens').append(novaDiv)
-                    
-                    $(`#${id}`).html(req.body.postagem);
-                    fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', (err, data)=>{
+                    function atualizarJSON(err, data){
                         if (err){
-                            console.log(chalk.red('!!! ERRO AO GRAVAR POSTAGEM.'));
+                            //ERRO AO LER INDEX.HTML
+                            console.log(chalk.red('!!! ERRO AO LER INDEX.HTML !!!'));
                             console.log(chalk.red(`Erro: ${err}`));
                             res.send(JSON.stringify({postagem: 'erro'}))
                         }
                         else{
-                            console.log(chalk.green(`Postagem feita por ${req.session.username}`));
-                            res.send(JSON.stringify({postagem: 'ok'}))
+                            postagens_CHAVE = false;
+
+                            let postsTMP = JSON.parse(data);
+                            postsTMP.push({
+                                data: new Date().getTime(),
+                                conteudo: req.body.postagem
+                            });
+                            fs.writeFile(path.join(__dirname, 'public', 'postagens.json'), JSON.stringify(postsTMP, null, 2), (err)=>{
+                                postagens_CHAVE = true;
+                                if(err){
+                                    console.log(chalk.red('!!! ERRO AO GRAVAR POSTAGEM.'));
+                                    console.log(chalk.red(`Erro: ${err}`));
+                                    res.send(JSON.stringify({postagem: 'erro'}))
+                                }
+                                else{
+                                    console.log(chalk.green(`Postagem feita por ${req.session.username}`));
+                                    atualizarVariavelPostagens()
+                                    .then(
+                                    ()=>{
+                                        //VARIAVEL DE POSTAGENS ATUALIZADAS.
+                                        res.send(JSON.stringify({postagem: 'ok'}))
+                                    },
+                                    ()=>{
+                                        //ERRO AO ATUALIZAR VARIAVEL DE POSTAGENS.
+                                        res.send(JSON.stringify({postagem: 'erro'}))
+                                    });
+                                }
+                            });
                         }
-                    });
+                    }
                 }
-            })
+            }
         }
         else{
             console.log(chalk.red('!!!TENTATIVA DE POSTAGEM SEM ESTAR LOGADO!!!'));
@@ -235,35 +261,107 @@ app.post('/*', (req, res)=>{
     }
     else if(req.path == '/manipulacaoPosts'){
         if(req.session.username){
-            fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', manipularHTML);
-
-            function manipularHTML(err, data){
-                if (err){
-                    //ERRO AO LER INDEX.HTML
-                    console.log(chalk.red('!!! ERRO AO LER INDEX.HTML PARA DELEÇÃO DE POST!!!'));
-                    console.log(chalk.red(`Erro: ${err}`));
-                    res.send(JSON.stringify({delecao: 'erro'}));
+            if(req.body.tipoRequisicao=='RequisicaoDeConteudo'){
+                postagemRequisitada = postagens.find((postTMP)=>{if(postTMP.data==req.body.idPostagem){return true}});
+                if(!postagemRequisitada){
+                    console.log(chalk.red('ERRO AO TENTAR ACHAR POSTAGEM REQUISITADA'));
+                    res.send({status: 'Erro interno de requisição de conteudo 0'});
                 }
                 else{
-                    //LEITURA DE INDEX.HTML FEITA
-                    $ = cheerio.load(data);
-                    $(`#${req.body.id}`).remove();
-
-                    fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', escreverModificaoes);
+                    res.send({
+                        status: 'ok',
+                        postagem: postagemRequisitada.conteudo
+                    });
                 }
             }
+            else if(req.body.tipoRequisicao=='SalvarEdicao'){
+               esperarChave();
+                function esperarChave(){
+                    if (!postagens_CHAVE){
+                        setTimeout(esperarChave, 1000);
+                    }
+                    else {
+                        postagens_CHAVE = false;
+                        fs.readFile(path.join(__dirname, 'public', 'postagens.json'), 'utf8', editarjson);
+                        function editarjson(err, data){
+                            if(err){
+                                console.log(chalk.red('ERRO AO LER ARQUIVO POSTAGENS.JSON PARA EDIÇÃO DE POST' + err));
+                                res.send({status: 'Erro interno de edição 0'});
+                            }
+                            else{
+                                postsTMP = JSON.parse(data);
+                                postsTMP.find((post)=>{if(post.data==req.body.idPostagem){return true}}).conteudo = req.body.novoTexto;
 
-            function escreverModificaoes(err, data){
-                if (err){
-                    console.log(chalk.red('!!! ERRO AO GRAVAR DELEÇÃO DE POSTAGEM.'));
-                    console.log(chalk.red(`Erro: ${err}`));
-                    res.send(JSON.stringify({delecao: 'erro'}));
-                }
-                else{
-                    console.log(chalk.green(`Deleção do post ${req.body.id} feita por ${req.session.username}`));
-                    res.send(JSON.stringify({delecao: 'ok'}));
+                                fs.writeFile(path.join(__dirname, 'public', 'postagens.json'), JSON.stringify(postsTMP, null, 2), mandarResposta);
+
+                                function mandarResposta(err){
+                                    postagens_CHAVE = true;
+                                    if (err){
+                                        console.log(chalk.red('ERRO AO SALVAR ARQUIVO POSTAGENS.JSON PARA EDIÇÃO DE POST' + err));
+                                        res.send({status: 'Erro interno de edição 1'});
+                                    }
+                                    else{
+                                        atualizarVariavelPostagens().then(
+                                        ()=>{
+                                            console.log(chalk.blue(`Edição de post ${req.body.idPostagem} feita com sucesso por ${req.session.username}`));
+                                            res.send({status: 'ok'});
+                                        },
+                                        ()=>{
+                                            res.send({status: 'Erro interno de edição 2'});
+                                        }
+                                        ); 
+                                    }
+                                }
+                            }
+                         }
+                    }
                 }
             }
+            else if(req.body.tipoRequisicao=='delecao'){
+                esperarChave();
+                function esperarChave(){
+                    if (!postagens_CHAVE){
+                        setTimeout(esperarChave, 1000);
+                    }
+                    else {
+                        postagens_CHAVE = false;
+
+                        fs.readFile(path.join(__dirname, 'public', 'postagens.json'), 'utf8', editarjson);
+
+                        function editarjson(err, data){
+                            if(err){
+                                console.log(chalk.red('ERRO AO LER ARQUIVO POSTAGENS.JSON PARA DELEÇÃO DE POST' + err));
+                                res.send({status: 'Erro interno de deleção 0'});
+                            }
+                            else{
+                                postsTMP = JSON.parse(data);
+                                postsTMP = postsTMP.filter((post)=>{return post.data != req.body.id});
+
+                                fs.writeFile(path.join(__dirname, 'public', 'postagens.json'), JSON.stringify(postsTMP, null, 2), mandarResposta);
+
+                                function mandarResposta(err){
+                                    postagens_CHAVE = true;
+                                    if (err){
+                                        console.log(chalk.red('ERRO AO SALVAR ARQUIVO POSTAGENS.JSON PARA EDIÇÃO DE POST' + err));
+                                        res.send({status: 'Erro interno de edição 1'});
+                                    }
+                                    else{
+                                        atualizarVariavelPostagens().then(
+                                        ()=>{
+                                            console.log(chalk.blue(`Edição de post ${req.body.idPostagem} feita com sucesso por ${req.session.username}`));
+                                            res.send({status: 'ok'});
+                                        },
+                                        ()=>{
+                                            res.send({status: 'Erro interno de edição 2'});
+                                        }
+                                        ); 
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }            
         }
         else{
             console.log(chalk.red('!!!TENTATIVA DE DELEÇÂO SEM ESTAR LOGADO!!!'));
@@ -272,63 +370,45 @@ app.post('/*', (req, res)=>{
             console.log(chalk.red(`IP: ${req.ip}`));
         }
     }
-    else if(req.path == '/EditarPostagem'){
-        if(req.session.username){
-            //USUÁRIO LOGADO
-            if(req.body.tipoRequisicao=='RequisicaoDeConteudo'){
-                fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', retornarhtml);
-
-                function retornarhtml(err, data){
-                    if (err){
-                        console.log(chalk.red('ERRO AO LER ARQUIVO INDEX.HTML PARA REQUISIÇÃO DE POSTAGEM' + err));
-                        res.send({status: 'Erro interno de requisição de conteudo 0'});
-                    }
-                    else{
-                        $ = cheerio.load(data);
-                        res.send({
-                            status: 'ok',
-                            postagem: $(`#${req.body.idPostagem}`).html()
-                        });
-                    }
-                }
-            }
-
-            else if(req.body.tipoRequisicao=='SalvarEdicao'){
-                fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8', editarhtml);
-
-                function editarhtml(err, data){
-                    if(err){
-                        console.log(chalk.red('ERRO AO LER ARQUIVO INDEX.HTML PARA EDIÇÃO DE POST' + err));
-                        res.send({status: 'Erro interno de edição 0'});
-                    }
-                    else{
-                        $ = cheerio.load(data);
-                        $(`#${req.body.idPostagem}`).html(req.body.novoTexto);
-
-                        fs.writeFile(path.join(__dirname, 'public', 'index.html'), $.html(), 'utf8', mandarResposta);
-                    }
-                }
-
-                function mandarResposta(err, data){
-                    if (err){
-                        console.log(chalk.red('ERRO AO SALVAR ARQUIVO INDEX.HTML PARA EDIÇÃO DE POST' + err));
-                        res.send({status: 'Erro interno de edição 1'});
-                    }
-                    else{
-                        console.log(chalk.blue(`Edição de post ${req.body.idPostagem} feita com sucesso por ${req.session.username}`));
-                        res.send({status: 'ok'});
-                    }
-                }
-
-            }
-        }
-        else{
-            //USUÁRIO NÃO LOGADO
-            console.log(chalk.red(`TENTATIVA DE EDIÇÃO DO POST ${req.body.idPostagem} por um usuário não autenticado!`));
-            res.send({status: 'Usuário não logado'});
-        }
-    }
 });
+
+//FUNÇÃO PARA ATUALIZAÇÃO DA VARIÁVEL DE POSTAGENS.
+function atualizarVariavelPostagens(){
+    return new Promise((resolve, reject)=>{
+        esperarChave();
+        function esperarChave(){
+            if (!postagens_CHAVE){
+                setTimeout(esperarChave, 1000);
+            }
+            else {
+                fs.readFile(path.join(__dirname, 'public', 'postagens.json'), 'utf8', organizarPosts);
+
+                function organizarPosts(err, data){
+                    if(err){
+                        console.log(chalk.red('ERRO AO LER POSTAGENS.JSON PARA ATUALIZAÇÃO DE POSTAGENS.'));
+                        console.log(chalk.red(err));
+                        reject(err);
+                    }
+                    else{
+                        let posts = JSON.parse(data);
+                        posts = posts.sort((post1, post2)=>{
+                            if(post1.data > post2.data){
+                                return -1;
+                            }
+                            else{
+                                return 1
+                            }
+                            return 0;
+                        });
+                        postagens = posts;
+                        console.log(chalk.green('Postagens atualizadas'));
+                        resolve();
+                    }              
+                }
+            }
+        }
+    });   
+}
 
 //QUALQUER PROCEDIMENTO NOVO A SER EXECUTADO NO INICIO DO SERVIDOR DEVE SER POSTO DENTRO DO CALLBACK DO APP.LISTEN :
 var servidor = app.listen(port, () => {   
@@ -337,6 +417,7 @@ var servidor = app.listen(port, () => {
     pontuacao.atualizarPontuacao(ipAdminTools, steamAPIKEY);
     log.recuperarPathInicial();
     log.atualizarLog();
+    atualizarVariavelPostagens();
 });
 
 //CONFIGURAÇÃO DE Temporizadores:
