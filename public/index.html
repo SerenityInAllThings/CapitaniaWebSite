@@ -177,7 +177,7 @@
 
             //FUNÇÃO PARA REQUISITAR MAIS POSTS CONFORME SE CHEGA NO FINAL DA PÁGINA.
             $(window).scroll(function () {
-                if ($(window).scrollTop() + $(window).height() > $(document).height()-50) {
+                if ($(document).scrollTop() + window.innerHeight > $(document).innerHeight()-50) {
                     popularPostagens(); 
                 }
             });
